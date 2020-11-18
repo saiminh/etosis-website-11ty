@@ -1,0 +1,30 @@
+---
+title: Etosis Home Page
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, intial-scale=1.0">
+    <title>{{ title }}</title>
+  </head>
+  <body>
+    <header>
+      <a href="{{ '/' | url }}">etosis</a>
+      <a href="{{ '/about' | url }}">about</a>
+      <a href="#work">work</a>
+      <a href="mailto:info@etosis.com">contact us</a>
+    </header>
+    <div class="page-content">
+      {{ content | safe }}
+    </div>
+    <div class="page-work-examples" id="work">
+    {%- for work in collections.work -%}
+      <a href="{{ work.url }}">{{ work.data.title }}</a>
+    {%- endfor -%}
+    </div>
+    <footer>
+      Footer content goes here
+    </footer>
+  </body>
+</html>
