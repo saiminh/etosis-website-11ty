@@ -1,0 +1,77 @@
+#Layer_1 path,
+#illu_about circle, 
+#illu_serious-gaming line,
+#illu-medical-company #eye, #illu-medical-company #background,
+#industrial-automation #floor, #industrial-automation #roof {
+  visibility: hidden;
+}
+#illu_about{
+  width: 140%;
+  height: 60%;
+  @media (min-width: 768px){
+    left: auto;
+    right: -44%;
+    top: -10%;
+    overflow: visible;
+    width: 130%;
+    height: 130%;
+  }
+}
+#illu_serious-gaming {
+  height: auto;
+}
+#industrial-automation {
+  width: auto;
+  left: auto;
+  right: 0;
+}
+div#cube {
+  position: absolute;
+  top: calc(50% - 100px);
+  left: calc(50% - 100px);
+  width: 150px;
+  height: 150px;
+  z-index: 10000;
+  visibility: hidden;
+}
+[id^="cube-"] {
+  position: absolute;
+  text-align: center;
+  left: 0;
+  top: 0;
+  width: 150px;
+  height: 150px;
+  color: #FFF;
+  background-color: #000;
+  //border: 3px solid #000;
+  transform-origin: 50% 50% -75px;
+  //overflow: hidden;
+  &:before {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    right: 2px;
+    bottom: 2px;
+    background-color: #FFF;
+  }
+}
+#cube-left, #cube-right {
+  border: none;
+  background-color: transparent;
+  &:before {
+    content: none;
+  }
+  & div {
+    background-color: #000;
+    &:before {
+      content: '';
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      right: 2px;
+      bottom: 2px;
+      background-color: #FFF;
+    }
+  }
+}

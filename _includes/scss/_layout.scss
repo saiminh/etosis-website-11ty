@@ -1,0 +1,97 @@
+html {
+  scroll-behavior: smooth;
+}
+.page-content {
+  padding: var(--padding-page) 15px var(--padding-page) var(--padding-page);
+  overflow: hidden;
+  max-width: 66rem;
+}
+.hero {
+  position: relative;
+  min-height: 100vh;
+}
+.hero h1 {
+  @media screen and (min-width: 768px) {
+    max-width: 48%;
+  }
+}
+.hero-bg-illu svg{
+  display: block;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  @media screen and (min-width: 768px) {
+    height: 100%;
+  }
+}
+.button {
+  font-weight: 600;
+  transition: transform .1s ease-out;
+  transform-origin: 50% 50%;
+  position: relative;
+}
+.button:hover {
+  transform: translate(-2px, 0);
+}
+.button [class^="icon-"] svg #arrow-right {
+  fill: var(--color-interaction);
+}
+.button [class^="icon-"] svg{
+  transition: transform .1s ease-out;
+  transform-origin: 50% 50%;
+}
+.button:hover [class^="icon-"] svg{
+  transform: translate(4px, 0);
+}
+.hero .button {
+  font-size: 1.25rem;
+}
+
+.columns {
+  @media screen and (min-width: 768px) {
+    display: flex;
+    margin: 0 -1.5rem;
+    width: calc(100% + 3rem);
+  }
+}
+.column {
+  @media screen and (min-width: 768px) {
+    padding: 0 1.5rem;
+    flex-basis: 50%;
+  }
+}
+img {
+  width: 100%;
+}
+.work-collection {
+  margin: 0 -1.5rem;
+  @media screen and (min-width: 768px) {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+.content-block {
+  position: relative;
+  padding: 1.5rem 0;
+  margin-bottom: 2.5rem;
+  & > :first-child {
+    margin-top: 0;
+  }
+  &:before {
+    content: '';
+    background-image: url('img/section-triangle.svg');
+    background-size: 100%;
+    background-repeat: no-repeat;
+    width: 20px;
+    height: 34px;
+    position: absolute;
+    top: 1rem;
+    left: calc(-1 * var(--padding-page) - 1px );
+    mix-blend-mode: multiply;
+    @media (min-width: 768px) {
+      width: 26px;
+      height: 40px;
+    }
+  }
+}

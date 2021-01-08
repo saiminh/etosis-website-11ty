@@ -1,0 +1,96 @@
+---
+tags: work
+title: Serious gaming company
+layout: layouts/page.njk
+svg: "partials/svg/hero-illu-serious-gaming-2.svg"
+thumbnail: /img/thumbnail-gamingcompany.svg
+card: 
+  title: "For a serious gaming company..."
+  icon_1: cube
+  list_1: "we invented a fully configurable 3d system ..."
+  icon_2: unity
+  list_2: "developed a UI interface for Unity3D ..."
+  icon_3: lock-plus
+  list_3: "and encrypted the delivery of copyrighted assets."
+---
+{% import "macros.html" as macros %}
+<div class="hero-bg-illu">
+  {% include svg %}
+  <div id="cube">
+    <div id="cube-bottom"></div>
+    <div id="cube-top"></div>
+    <div id="cube-left"><div id="cube-left-face"></div></div>
+    <div id="cube-right"><div id="cube-right-face"></div></div>
+    <div id="cube-back"></div>
+    <div id="cube-front"></div>
+  </div>
+</div>
+<section class="hero">
+  <h1><span class="eyebrow">Client: A Serious Gaming company</span>3D system, UI Interface and Asset encryption</h1>
+  <div class="card factsheet">
+    <h3 class="card-title">Technology stack</h3>
+    <dl>
+      <dt>Technologies</dt>
+      <dd>Encryption, Unity3D, JSON</dd>
+      <dt>Programming Laguages</dt>
+      <dd>C#</dd>
+    </dl>
+  </div>
+</section>
+<section class="content-block">
+  <h2><span class="eyebrow">Serious games have serious issues</span>The challenges</h2>
+  <div class="columns">
+    <div class="column">
+      <p>Our client creates games in Unity3D that simulate serious situations for training purposes. But the team knew the platform has some limitations that required custom additions if they wanted to realize their original vision.</p>
+      <p>Unity3D is a closed system, so the solutions needed to be X-proof and Z-safe and work with any update to the core.</p>
+    </div>
+    <div class="column">
+      <div class="card">
+        <h3 class="card-title">The issues our client was facing:</h3>
+        <div class="card-section">
+          <h4 class="card-section-title">Technology</h4>
+          <ul class="card-section-list">
+            <li>Unity3D can’t automatically create situations or environments out of the box</li>
+            <li>Client’s programmers need to be able to interface with any new custom system</li>
+          </ul>
+        </div>
+        <div class="card-section">
+          <h4 class="card-section-title">Digital Rights Management</h4>
+          <ul class="card-section-list">
+            <li>3D model assets needed to be protected</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="content-block">
+  <h2><span class="eyebrow">Seriously solved</span>The solutions</h2>
+  <div class="columns">
+    <div class="column">
+      <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>
+      <p>At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor.</p>
+    </div>
+    <div class="column">
+      <div class="card">
+        <h3 class="card-title">Our solutions:</h3>
+        <div class="card-section">
+          <h4 class="card-section-title">Technology</h4>
+          <ul class="card-section-list">
+            <li>Developed a configurable system to create & manage large numbers of 3D objects </li>
+            <li>Built a new extensive UI framework for the client’s team to leverage when building game scenarios</li>
+          </ul>
+        </div>
+        <div class="card-section">
+          <h4 class="card-section-title">Digital Rights Management</h4>
+          <ul class="card-section-list">
+            <li>We developed an encryption system that could easily be integrated into the client’s asset pipeline</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="content-block">
+  {{ macros.cta() }}
+</section>

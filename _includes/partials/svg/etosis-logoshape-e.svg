@@ -1,0 +1,11 @@
+<svg id="etosis-logoshape-e" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+   viewBox="0 0 25 80" style="enable-background:new 0 0 25 80;" xml:space="preserve">
+  <path id="triangle_top" style="fill:#FAA61A;" d="M21.98,14.4L0,0v20l15.26,10l6.72-4.4c3.07-2.01,3.94-6.15,1.94-9.24
+    C23.42,15.58,22.76,14.91,21.98,14.4"/>
+  <path id="triangle_bottom" style="fill:#FAA61A;" d="M0,80l21.98-14.41c3.07-2.01,3.94-6.15,1.94-9.24c-0.5-0.78-1.17-1.45-1.94-1.96
+    l-6.72-4.4L0,60V80z"/>
+  <path id="triangle_middle_valley" d="M0,60l15.26-10l-9.9-6.48c-1.93-1.26-2.47-3.86-1.22-5.8c0.32-0.49,0.73-0.91,1.22-1.23l9.9-6.48L0,20V60
+    z"/>
+  <path id="triangle_middle_peak" style="fill:#83B8D9;" d="M23.93,36.37c-0.51-0.78-1.17-1.45-1.95-1.96L15.26,30l-9.91,6.49c-0.48,0.32-0.9,0.73-1.21,1.22
+    c-1.25,1.94-0.71,4.54,1.22,5.8l9.9,6.48l0,0l0,0l6.72-4.4C25.05,43.59,25.92,39.46,23.93,36.37z"/>
+</svg>

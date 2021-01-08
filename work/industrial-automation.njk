@@ -1,0 +1,84 @@
+---
+tags: work
+title: Industrial Automation Company
+layout: layouts/page.njk
+svg: "partials/svg/hero-illu-industrial-automation.svg"
+thumbnail: /img/thumbnail-industrial-automation.svg
+card: 
+  title: "For an Industrial Automation Company..."
+  icon_1: cube
+  list_1: "we developed a 3D positioning system ..."
+  icon_2: camera
+  list_2: "using only a single camera."
+---
+{% import "macros.html" as macros %}
+<div class="hero-bg-illu">
+  {% include svg %}
+</div>
+<section class="hero">
+  <h1><span class="eyebrow">Client: Industrial Automation</span> Summary</h1>
+  <div class="card factsheet">
+    <h3 class="card-title">Technology stack</h3>
+    <dl>
+      <dt>Technologies</dt>
+      <dd>Encryption, Unity3D, JSON</dd>
+      <dt>Programming Laguages</dt>
+      <dd>C#</dd>
+    </dl>
+  </div>
+</section>
+<section class="content-block">
+  <h2>
+    <span class="eyebrow">Serious games have serious issues</span>
+    The challenges
+  </h2>
+  <div class="columns">
+    <div class="column">
+      <p>
+      Many projects include some form of control over real world objects from software. Lights may be switched on or off, or objects may be moved, for example to bring them into focus in front of a camera.</p>
+      <p>
+      Determining the position of an object in 3D – i.e. the real world – is surprisingly tricky. Even when the starting position is known – and this is not always obvious – moving the object by a known distance in a known direction might not mean it ends up where you calculated. There will be mechanical factors – such as friction and hysteresis – that interfere with the movement and there may well be manufacturing and software imperfections that mean components don’t behave exactly as expected.</p>
+      <p>
+      That means that for any object that is moved using software, there should be some way to determine its actual position, or at least when the end of the range has been reached. Motors that can move objects at the speed required for auto-focus easily have enough power to break a hardware prototype. So, it’s important to stop them quickly when reaching the end of the range.</p>
+    </div>
+    <div class="column">
+      <div class="card">
+        <h3 class="card-title">The issues our client was facing:</h3>
+        <div class="card-section">
+          <h4 class="card-section-title">Technology</h4>
+          <ul class="card-section-list">
+            <li>Accurate 3D positioning generally requires at least two cameras, or a range of sensors</li>
+            <li>The system only has a single camera</li>
+          </ul>
+        </div>        
+      </div>
+    </div>
+  </div>
+</section>
+<section class="content-block">
+  <h2><span class="eyebrow">Seriously solved</span>The solutions</h2>
+  <div class="columns">
+    <div class="column">
+      <p>
+      This usually involves a number of switches that are pressed when the object moves close to it. These switches stop the movement in hardware and send a signal to the software. By running the hardware from the start to the end of the range, the software can determine a reasonable approximation of the distance the object can move and keep track of its current location.</p>
+      <p>
+      For one project, I developed a way to track the object using a single camera. Usually, at least two cameras are needed to accurately detect the position in three dimensions. However, using a colour-coded background pattern, it is possible to detect the object at different locations relative to the camera, and from this the trajectory can be determined in three dimensions.</p>
+    </div>
+    <div class="column">
+      <div class="card">
+        <h3 class="card-title">Our solutions:</h3>
+        <div class="card-section">
+          <h4 class="card-section-title">Technology</h4>
+          <ul class="card-section-list">
+            <li>The position in 3D is determined by moving and rotating the camera along different axes</li>
+            <li>Simple markers on the device allows the different images to be correlated</li>
+            <li>From this the position can accurately be determined in 3D, without modifying the device</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="content-block">
+  {{ macros.cta() }}
+</section>

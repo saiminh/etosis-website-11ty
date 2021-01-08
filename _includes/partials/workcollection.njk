@@ -1,0 +1,30 @@
+{% import "macros.html" as macros %}
+<div class="content-block" id="work">
+  <h2>
+    <span class="eyebrow">Some of our favorite problems solved so far</span>
+    Work examples</h2>
+  <div class="work-collection">
+  {%- for work in collections.work -%}    
+    <a href="{{ work.url }}" class="card work-collection-card{% if work.url == page.url %} currently-viewing{% endif %}">
+      <div class="card-description">
+        <header class="card-title">{{ work.data.card.title }}</header>
+        <div class="card-illu"><img src="{% if work.data.thumbnail %}{{ work.data.thumbnail }}{% else %}/img/img-placeholder.png{% endif %}" /></div>
+        <div class="card-section">
+          {{ macros.icon( work.data.card.icon_1 )}}{{ work.data.card.list_1 }}
+        </div>
+        <div class="card-section">
+          {{ macros.icon( work.data.card.icon_2 )}}{{ work.data.card.list_2 }}
+        </div>
+        <div class="card-section">
+          {{ macros.icon( work.data.card.icon_3 )}}{{ work.data.card.list_3 }}
+        </div>
+      </div>
+      <div class="card-button">
+        {% if work.url !== page.url %}Read more {{ macros.icon('arrow-right') }}
+        {% else %} Currently Viewing
+        {% endif %}
+      </div>
+    </a>
+  {%- endfor -%}
+  </div>
+</div>

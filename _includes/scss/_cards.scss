@@ -1,0 +1,175 @@
+.card {
+  background-color: var(--color-card-bg);
+  border-radius: 10px;
+  padding: 0;
+  overflow: hidden;
+}
+.work-collection-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-basis: calc(50% - 3rem);
+  margin: .75rem 1.5rem;
+  //transition: all 100ms ease-in-out;
+}
+.work-collection-card .card-button i.icon-arrow-right svg{
+  transition: all 100ms ease-in-out;
+}
+.work-collection-card:hover .card-button i.icon-arrow-right svg{
+  transform: translateX(7px);
+}
+.cta-card {
+  max-width: 33rem;
+  margin: 0 auto;
+  padding-top: 1rem;
+  & .card-title,
+  & .card-section {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+.card-title {
+  background-color: var(--color-highlight);
+  margin: 0;
+  padding: .75rem 1.5rem;
+  border-radius: 10px 10px 0 0 ;
+}
+.card-section {
+  border-bottom: 1px solid #DDD;
+  padding: .75rem 1.5rem;
+  .work-collection-card & {
+    display: flex;
+    align-items: baseline;
+    padding-left: 1rem;
+  }
+}
+.card-section:last-child {
+  padding-bottom: 1.5rem;
+}
+.work-collection-card .card-section:last-child {
+  padding-bottom: .75rem;
+  border-bottom: none;
+}
+.card-section-title {
+  margin: 0 0 .5em 0;
+}
+.card-section-list {
+  margin: 0;
+  padding-left: 1em;
+  & li {
+    margin-bottom: .5em;
+  }
+  & li:last-child {
+    margin-bottom: 0
+  }
+}
+.card dl {
+  margin: 0;
+}
+.card dt {
+  font-weight: 600;
+  padding: .75rem 1.5rem 0 1.5rem; 
+}
+.card dd {
+  margin-left: 0;
+  padding: 0 1.5rem .75rem 1.5rem;
+  border-bottom: 1px solid #DDD;
+}
+.card dl > dd:last-child {
+  margin-bottom: 0;
+  padding-bottom: 1.5rem;
+  border-bottom: none;
+}
+.card-illu {
+  width: 100%;
+  height: 0;
+  padding-top: 30%;
+  overflow: hidden;
+  position: relative;
+}
+.card-illu img {
+  display: block;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 0;
+  height: inherit;
+  width: inherit;
+  min-width: 100%;
+  min-height: 100%;
+  max-width: none;
+  max-height: none;
+  object-fit: cover;
+}
+.card-button,
+a.card-button {
+  display: block;
+  padding: 1rem 1.5rem;
+  background-color: var(--color-interaction);
+  color: var(--color-bg);
+  text-align: right;
+  & .icon-arrow-right svg,
+  & .icon-mail svg {
+    fill: var(--color-bg);
+  }
+}
+.hero .card {
+  margin-top: 50vh;
+  @media screen and (min-width: 768px){
+    margin-top: 0;
+    max-width: 50%;
+    min-width: 33%;
+    display: inline-block;
+  }
+}
+.currently-viewing.work-collection-card {
+  color: #BBB;
+  & #icons > * {
+    fill: #BBB;
+  }
+  & .card-title {
+    //color: var(--color-text);
+    background-color: #F2E0BF;
+  }
+}
+.currently-viewing .card-button {
+  position: relative;
+  background-color: #d2c5bb;
+}
+.currently-viewing .card-illu img {
+  opacity: .3;
+}
+.currently-viewing .card-illu:after,
+.currently-viewing .card-illu:before,
+.work-collection-card[data-visited="true"] .card-illu:before {
+  content: '✓ Viewed'; 
+  position: absolute;
+  top: .5rem;
+  left: .5rem;
+  background-color: var(--color-text);
+  color: var(--color-bg);
+  font-size: .8rem;
+  padding: .5rem;
+  border-radius: 3px;
+  z-index: 1;
+}
+.currently-viewing .card-illu:after{
+  content: "Currently viewing";
+  background-color: var(--color-highlight);
+  color: var(--color-bg);
+  padding-left: 2.25rem; 
+}
+.currently-viewing.work-collection-card[data-visited="true"] .card-illu:before{
+  z-index: 2;
+  line-height: 1;
+  padding: 0;
+  height: 24px;
+  width: 24px;
+  left: 1rem;
+  top: .9rem;
+  background: transparent;
+  content: url('data:image/svg+xml; utf8, <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="white" d="M12.015 7c4.751 0 8.063 3.012 9.504 4.636-1.401 1.837-4.713 5.364-9.504 5.364-4.42 0-7.93-3.536-9.478-5.407 1.493-1.647 4.817-4.593 9.478-4.593zm0-2c-7.569 0-12.015 6.551-12.015 6.551s4.835 7.449 12.015 7.449c7.733 0 11.985-7.449 11.985-7.449s-4.291-6.551-11.985-6.551zm-.015 5c1.103 0 2 .897 2 2s-.897 2-2 2-2-.897-2-2 .897-2 2-2zm0-2c-2.209 0-4 1.792-4 4 0 2.209 1.791 4 4 4s4-1.791 4-4c0-2.208-1.791-4-4-4z"/></svg>')
+}

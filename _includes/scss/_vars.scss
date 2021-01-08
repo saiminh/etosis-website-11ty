@@ -1,0 +1,14 @@
+:root {
+  --color-bg: #FFF;
+  --color-text: #000;
+  --color-highlight: #FFA700;
+  --color-interaction: #82B8D9;
+  --color-card-bg: #EEE;
+
+  --padding-page: 30px;
+}
+@media screen and (min-width: 768px) {
+  :root {
+    --padding-page: 38px;
+  }
+}

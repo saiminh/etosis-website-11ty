@@ -1,0 +1,78 @@
+gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(DrawSVGPlugin);
+
+window.addEventListener('load', function(){
+  if ( document.getElementById("Layer_1") ){
+    let homeillupaths = document.querySelectorAll("#Layer_1 path");
+    let tlSVGin = new gsap.timeline({ paused: false })
+      .set(homeillupaths, { autoAlpha: 1, drawSVG: "50% 50%" })
+      .to(homeillupaths, { 
+        drawSVG: "0% 100%", 
+        stagger: { amount: 1, from: "center" }, 
+        duration: 3,     
+        ease: "sin.out"
+        //ease: "bounce.out"
+      },0);
+    gsap.fromTo(homeillupaths, {
+      drawSVG: "0% 100%",
+    }, {
+      drawSVG: "50% 50%",
+      scrollTrigger: {
+        trigger: ".hero",
+        start: "33% center",
+        end: "100% center",
+        scrub: true,
+        ease: "sin.out",
+        markers: false
+      }
+    })
+  }
+  else if ( document.getElementById("illu_about") ){
+    let aboutillupaths = document.querySelectorAll("#illu_about circle");
+    let naboutillupaths = aboutillupaths.length;
+    let tlSVGin = new gsap.timeline({ paused: false })
+    .set(aboutillupaths, {      
+      autoAlpha: 1,
+      y: -500
+    })
+    .to(aboutillupaths, {      
+      y: 00,
+      stagger: { amount: 1 }, 
+      duration: 3,     
+      ease: "elastic"
+    });
+
+    gsap.to(aboutillupaths, {
+      //x: 600,
+      y: -600,
+     // autoAlpha: 0,
+      stagger: { amount: 2, from: "end" },
+      duration: 1,
+      ease: "power4.inOut", //"steps(550)",
+      scrollTrigger: {
+        trigger: ".hero",
+        start: "30% center",
+        end: "100% center",
+        scrub: true,
+        markers: true,
+        toggleActions: "restart complete restart reverse"
+      }
+    })
+  }
+})
+
+
+
+
+let toggler = document.getElementById("page-header-nav-toggle");
+function menuOnClick() {
+  document.body.classList.toggle("nav-toggled");
+  if ( toggler.innerHTML == "Menu" ) {
+    toggler.innerHTML = "Close";
+  } else {
+    toggler.innerHTML = "Menu";
+  };
+}
+toggler.addEventListener("click", function() {
+  menuOnClick();
+})

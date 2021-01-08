@@ -1,0 +1,43 @@
+i[class^="icon-"] {
+  display: inline;
+}
+i[class^="icon-"] svg {
+  width: .9em;
+}
+i[class^="icon-"] svg > * {
+  display: none;
+}
+i.icon-outlook svg #outlook,
+i.icon-code svg #code,
+i.icon-bug svg #bug,
+i.icon-database svg #database,
+i.icon-import svg #import,
+i.icon-python svg #python,
+i.icon-video svg #video,
+i.icon-cursor svg #cursor,
+i.icon-java svg #java,
+i.icon-chart svg #chart,
+i.icon-link svg #link,
+i.icon-user svg #user,
+i.icon-tools svg #tools,
+i.icon-camera svg #camera,
+i.icon-unity svg #unity,
+i.icon-lock-plus svg #lock-plus,
+i.icon-cube svg #cube,
+i.icon-mail svg #mail,
+i.icon-arrow-right svg #arrow-right {
+  display: inherit;
+}
+.work-collection-card .card-section i[class^="icon-"] {
+  display: inline-block;
+  width: 2em;
+  height: 1em;
+  position: relative;
+  margin-right: 1em;
+  flex-shrink: 0;
+}
+.work-collection-card .card-section i[class^="icon-"] svg {
+  width: 2em;
+  position: absolute;  
+  top: -.5em;
+}
