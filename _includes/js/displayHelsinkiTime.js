@@ -1,8 +1,9 @@
 function calcTime() {
-    var d = new Date();
-    var utc = d.getTime() + (d.getTimezoneOffset() * 60000);
-    var nd = new Date(utc + (3600000*2));
-    return "(Local time is " + nd.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) + ")";
+    var d = new Date().toLocaleTimeString("en-GB", {
+      timeZone:"Europe/Helsinki", 
+      hour: "2-digit", 
+      minute: "2-digit"})
+    return "(Local time is " + d + ")";
 }
 window.addEventListener('load', function(){
   if( document.querySelector('.helsinkitime') ){

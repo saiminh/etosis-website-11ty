@@ -1,16 +1,17 @@
 gsap.registerPlugin(ScrollTrigger);
 gsap.registerPlugin(DrawSVGPlugin);
+gsap.registerPlugin(MorphSVGPlugin);
 
 window.addEventListener('load', function(){
-  if ( document.getElementById("Layer_1") ){
-    let homeillupaths = document.querySelectorAll("#Layer_1 path");
-    let tlSVGin = new gsap.timeline({ paused: false })
+  if ( document.getElementById("illu-home") ){
+    let homeillupaths = document.querySelectorAll("#illu-home path");
+    let tlSVGin = gsap.timeline({ paused: false })
       .set(homeillupaths, { autoAlpha: 1, drawSVG: "50% 50%" })
       .to(homeillupaths, { 
         drawSVG: "0% 100%", 
-        stagger: { amount: 1, from: "center" }, 
-        duration: 3,     
-        ease: "bounce"
+        stagger: { amount: 1, from: "end" }, 
+        duration: 2,     
+        ease: "circ.inOut"
       },0);
     gsap.fromTo(homeillupaths, {
       drawSVG: "0% 100%",
@@ -28,22 +29,20 @@ window.addEventListener('load', function(){
   };
   if ( document.getElementById("illu_about") ){
     let aboutillupaths = document.querySelectorAll("#illu_about circle");
-    let tlSVGin = new gsap.timeline({ paused: false })
-    .set(aboutillupaths, {      
-      autoAlpha: 1,
-      y: -500
-    })
-    .to(aboutillupaths, {      
-      y: 00,
-      stagger: { amount: 1 }, 
-      duration: 3,     
-      ease: "elastic"
-    });
+    let tlSVGin = gsap.timeline({ paused: false })
+      .set(aboutillupaths, {      
+        autoAlpha: 1,
+        y: -500
+      })
+      .to(aboutillupaths, {      
+        y: 00,
+        stagger: { amount: 1 }, 
+        duration: 3,     
+        ease: "elastic"
+      });
 
     gsap.to(aboutillupaths, {
-      //x: 600,
       y: -600,
-     // autoAlpha: 0,
       stagger: { amount: 2, from: "end" },
       duration: 1,
       ease: "power4.inOut", //"steps(550)",
@@ -52,8 +51,8 @@ window.addEventListener('load', function(){
         start: "30% center",
         end: "100% center",
         scrub: true,
-        markers: true,
-        toggleActions: "restart complete restart reverse"
+        toggleActions: "restart complete restart reverse",
+        onEnter: () => { tlSVGin.seek(5) }
       }
     })
   };
@@ -61,96 +60,15 @@ window.addEventListener('load', function(){
     let horizontal = document.querySelectorAll("#illu_serious-gaming #horizontals > *");
     let vertical = document.querySelectorAll("#illu_serious-gaming #verticals > *");
     let alllines = document.querySelectorAll("#illu_serious-gaming #verticals > *, #illu_serious-gaming #horizontals > *");
-    let cubesides = document.querySelectorAll("#cube div");
-    let tlMaster = new TimelineMax({paused:true});
-    gsap.set("#cube", {
-      transformStyle: "preserve-3d"
-    })
-    gsap.set(cubesides, {
-      transformStyle: "preserve-3d",
-      transformOrigin: "50% 50% -75px",
-      transformPerspective: 1000
-    })
-    gsap.set("#cube-back", {
-      rotationY: 180,
-      rotationX: 0
-    })
-    gsap.set("#cube-right", {
-      rotationY: 270,
-      rotationX: 0
-    })
-    gsap.set("#cube-left", {
-      rotationY: 90,
-      rotationX: 0
-    })
-    gsap.set("#cube-top", {
-      rotationX: 90,
-      rotationY: 0
-    })
-    gsap.set("#cube-bottom", {
-      rotationX: 270,
-      rotationY: 0
-    })
-    let dur = 6;
-    function facesInner() {
-      let tlFacesInner = new gsap.timeline({ repeat: -1 });
-      tlFacesInner
-        .to("#cube-front", {
-            rotationX: '+=360',
-            rotationY: '+=360',
-            ease: "linear",
-            duration: dur,
-        }, 0)
-        .to("#cube-back", {
-            rotationX: '-=360',
-            rotationY: '+=360',
-            ease: "linear",
-            duration: dur
-        }, 0)
-        .to("#cube-top", {
-            rotationX: '+=360',
-            rotationY: '+=360',
-            ease: "linear",
-            duration: dur
-        }, 0)
-        .to("#cube-bottom", {
-            rotationX: '+=360',
-            rotationY: '+=360',
-            ease: "linear",
-            duration: dur
-        }, 0)
-        .to("#cube-left", {
-            rotationY: '+=360',
-            ease: "linear",
-            duration: dur
-        }, 0)
-        .to("#cube-right", {
-            rotationY: '+=360',
-            ease: "linear",
-            duration: dur
-        }, 0)
-        .to("#cube-left-face", {
-            rotationZ: '360',
-            ease: "linear",
-            duration: dur
-        }, 0)
-        .to("#cube-right-face", {
-            rotationZ: '-360',
-            ease: "linear",
-            duration: dur
-        }, 0)
-      return tlFacesInner;
-    }
-    window.requestAnimationFrame(function(){
-      tlMaster
-        .add(facesInner(), 0)
-        .progress(1).progress(0)
-        .play();
-    });
 
-    let tlSVGin = new gsap.timeline({ paused: false, repeat: 0 });
+    // Most of the rotation code is in the svg... 
+    beginRotateY(0.025);
+    beginRotateX(0.033);
+    //END
+
+    let tlSVGin = gsap.timeline({ paused: false, repeat: 0 });
     tlSVGin.set( alllines, { autoAlpha: 1,  y: 1000 })
-    .set ( "div#cube", { y: 1000, autoAlpha: 1 })
+    .set ( ".elcubo-container", { y: 1000, autoAlpha: 1 })
     .to( horizontal, { 
       y: 0,
       stagger: { amount: .5, from: "start" }, 
@@ -163,7 +81,7 @@ window.addEventListener('load', function(){
       duration: 1.5,     
       ease: "circ.inOut"
     }, .2)
-    .to( "div#cube", {
+    .to( ".elcubo-container", {
       y: 0,
       ease: "circ.inOut",
       duration: 2
@@ -177,32 +95,29 @@ window.addEventListener('load', function(){
     };
     gsap.to( horizontal, {  drawSVG: "100% 100%", stagger: { amount: .1, from: "start" }, scrollTrigger: seriousgamingtrigger });
     gsap.to( vertical, {  drawSVG: "0% 0%", stagger: { amount: .1, from: "start" }, scrollTrigger: seriousgamingtrigger });
-    ScrollTrigger.create({
-      trigger: ".page-header",
-      start: "0 top",
-      end: "+=300",
-      pin: "div#cube",
-      markers: true
-    });
+    gsap.to( ".elcubo-container", {  xPercent: 66, yPercent: -15, scale: .8, scrollTrigger: seriousgamingtrigger });
   }
   if ( document.getElementById("illu-medical-company") ){
     let oddbglines = document.querySelectorAll("#background g g:nth-child(odd) path");
     let evenbglines = document.querySelectorAll("#background g g:nth-child(even) path");
-    let tlbg = new gsap.timeline( { paused: false, repeat: -1 } );
-    tlbg.fromTo("#background g g path", 
-    { drawSVG: "0% 70%" }, 
-    { drawSVG: "10% 80%", xPercent: -10, ease: "linear", duration: 2, repeat: 1, yoyo: false }, 0);
+    let tlbg = gsap.timeline( { paused: false, repeat: -1 } );
+    tlbg.fromTo( oddbglines, 
+      { drawSVG: "10% 80%" }, 
+      { drawSVG: "20% 90%", xPercent: -10, ease: "linear", duration: 4 }, 0);
+    tlbg.fromTo( evenbglines, 
+      { drawSVG: "10% 80%" }, 
+      { drawSVG: "0% 70%", xPercent: 10, ease: "linear", duration: 4 }, 0);
     gsap.set("#background", { autoAlpha: 1, x: 1000 });
     gsap.set("#eye-retina", { transformOrigin: "50% 50%" });
     gsap.to("#background", { x: 0, duration: 1 })
-    let tlSVGin = new gsap.timeline( { paused: false, repeat: 0 } )
+    let tlSVGin = gsap.timeline( { paused: false, repeat: 0 } )
       .set("#eye", { autoAlpha: 1 })
       .from("#eye", { xPercent: 300, duration: 2, ease: "circ.inOut" }, .5)
       .to("#eye-retina", { xPercent: -60, scaleX: .6, scaleY: 1.2, duration: .5, ease: "circ.inOut"}, 0)
       .to("#eye-retina", { xPercent: 0, scaleX: 1, scaleY: 1, duration: .5, ease: "circ.inOut"}, 2)
       .to("#eye-retina-hole", { scale: 2, transformOrigin: "50% 50%", ease: "circ.inOut", duration: .5 }, 2)
       .to("#eye-retina-hole", { scale: 1, transformOrigin: "50% 50%", ease: "circ.inOut", duration: .5 }, 3);
-    let tlEyelook = new gsap.timeline({ repeat: -1 })
+    let tlEyelook = gsap.timeline({ repeat: -1 })
       .to("#eye-retina-hole", { scale: 2, transformOrigin: "50% 50%", ease: "circ.inOut", duration: .35 }, 5)
       .to("#eye-retina", { rotationZ: 5, ease: "circ.inOut", duration: .35 }, 5)
       .to("#eye-retina-rays line", { strokeWidth: 3, duration: .35 }, 5)
@@ -228,10 +143,10 @@ window.addEventListener('load', function(){
   if ( document.getElementById("industrial-automation") ){
     gsap.set("#roof, #floor", { autoAlpha: 1 });
     gsap.set("#ball, #ball-shadow", { transformOrigin: "50% 50%" });
-    let tlOnOpen = new gsap.timeline({ paused: false })
+    let tlOnOpen = gsap.timeline({ paused: false })
     .from("#roof line, #floor line", { drawSVG: "100% 100%", duration: 4, ease: "power2.out" })
 
-    let tlBallBounce = new gsap.timeline({ paused: false, repeat: -1, repeatDelay: 3.6})
+    let tlBallBounce = gsap.timeline({ paused: false, repeat: -1, repeatDelay: 3.6})
     .fromTo("#ball", { yPercent: 0, scale: 1 }, { yPercent: -66, scale: 1, duration: .3, ease: "circ.out" }, 0)
     .fromTo("#ball-shadow", {yPercent: 0, scale: 1 }, {yPercent: 5, scale: .66, duration: .3, ease: "circ.out" }, 0)
     .to("#ball, #ball-shadow", {yPercent: 0, scale: 1, duration: 1.3, ease: "bounce.out" } );
@@ -246,5 +161,246 @@ window.addEventListener('load', function(){
       toggleActions: "restart complete restart reverse"       
     };
     gsap.fromTo("#roof line, #floor line", { drawSVG: "0% 100%" }, { drawSVG: "100% 100%", ease: "none", scrollTrigger: industrialtrigger });
+  }
+
+  if ( document.getElementById("financial-services") ){
+    let paths = Array.from( document.querySelectorAll('#financial-services > g > *') );  
+    gsap.set("#financial-services > g > *", { transformOrigin: "50% 50%" });
+    const randZ = gsap.utils.random(-45, 45, true);
+    const randScale = gsap.utils.random(0.7, 1.5, true);
+    let newZ = randZ();
+    let newScale = randScale();
+
+    let tl = gsap.timeline({ 
+      paused: true, repeat: -1, repeatRefresh: true,
+      defaults: {
+        stagger: { 
+          amount: .5, from: "end", ease: "power1.in"
+        }, 
+        ease: "power2.inOut", 
+        duration: 1
+      },
+      onRepeat: () => {
+        newZ = randZ();
+        newScale = randScale();
+      }
+    });
+    tl.to( paths, { rotationZ: () => newZ });
+    tl.to( paths, { scaleX: () => newScale});
+      
+    let tljam = gsap.timeline();
+    tljam.set( paths, { autoAlpha: 0 });
+    tljam.set( paths[25], { autoAlpha: 1, drawSVG: "0% 0%" });
+    tljam.to( paths[25], { 
+      drawSVG: "0% 100%", 
+      ease: "power2.in",
+      duration: 1, 
+      onComlete: () => { 
+        tljam.set( paths, { autoAlpha: 1 });
+        for(i=49; i >= 0; i--) {
+          tljam.from(paths[i], { morphSVG: paths[25], duration: 1, ease: "circ.inOut",
+          onComplete: () => {
+            tl.play();
+          } }, 1);
+        }
+      } 
+    });
+    gsap.to("#financial-services", {
+      scale: 0.75,
+      xPercent: 33,
+      scrollTrigger: {
+        trigger: ".hero",
+        start: "30% center",
+        end: "100% center",
+        scrub: true,
+        toggleActions: "restart complete restart reverse",
+      }
+    })
+  }
+  if ( document.getElementById("outlook") ){
+    gsap.set("#outlook", {autoAlpha: 1});
+    let paths = Array.from( document.querySelectorAll('#outlook > polygon, #envelopelines') );   
+    let tl_trailloop = gsap.timeline({ paused: false })
+    .to( paths, {
+      transformOrigin: "50% 50%", 
+      rotationZ: 360, 
+      duration: 10, 
+      ease: "none", 
+      stagger: { 
+        from: "end", 
+        each: .01, 
+        repeat: -1, 
+        repeatDelay: .1, 
+        yoyo: false 
+      }
+    })
+    let tl_intro = gsap.timeline()
+      .fromTo( paths, 
+      { x: -2000 }, 
+      { x: 0, 
+        duration: 1, 
+        stagger: { 
+          each: .01, 
+          from: "end"          
+        }, 
+        ease: "power3.inOut"        
+      },  0);
+    gsap.fromTo( paths , {
+      xPercent: 0
+    },{
+      xPercent: 100, 
+      stagger: { 
+        each: .001, 
+        from: "end"          
+      }, 
+      ease: "power3.out",
+      scrollTrigger: {
+        trigger: ".page-header",
+        start: "bottom top",
+        end: "+=1000",
+        scrub: true     
+      }
+    })
+    gsap.set(paths, { transformOrigin: "50% 50%", x: -2000 });
+  }
+  if( document.getElementById("illu-medical-research") ){
+    let bars = Array.from( document.querySelectorAll("[id^='bar-clip'] [id^='bar']") );
+    let master = gsap.timeline({
+      id: "master",
+      scrollTrigger: {
+        trigger: ".page-header",
+        toggleActions: "play pause play pause"
+      }
+    });
+    //master.addLabel("shrinkage", 3);
+    function anim(elem, t){
+      let tl = gsap.timeline({repeat: -1, repeatRefresh: true });
+      tl.to(elem, { 
+        yPercent: "random(0, 100)", duration: 1, ease: "circ.inOut", delay: t
+      });
+      tl.to( elem, { 
+        yPercent: 91, 
+        scrollTrigger: {        
+          trigger: ".page-header",
+          start: "bottom top",
+          end: "+=500",
+          scrub: true
+        }
+      });
+      tl.to( elem.parentElement, { 
+        scale: 0,
+        transformOrigin: "100% 0%",
+        scrollTrigger: {        
+          trigger: ".page-header",
+          start: "+=500 top",
+          end: "+=1000",
+          scrub: true
+        }
+      })
+      return tl;
+    };
+    for(i = 0; i < bars.length; i++ ) {
+      master.add( anim( bars[i], i*0.01 ), 0 )            
+    };
+  }
+  if(document.getElementById("illu-cgi")){
+    gsap.set("#eye-clip-clippath", { transformOrigin: "50% 63%" })
+    gsap.set("#retina, #hole", { transformOrigin: "50% 50%" })
+    gsap.set("#upperlid-closed, #lowerlid-closed", { autoAlpha: 0 })
+    let tl = gsap.timeline({ repeat: -1, repeatRefresh: true,  defaults: {
+      ease: "power3.inOut", duration: .7
+    } })
+      .to("#retina", { xPercent: "random(-70, 70)", yPercent: "random(-30, 30)", ease: "power3.out" }, 1 )
+      .to("#retina", { rotateZ: "random(-45, 45)" }, 1.7 )
+      .to("#hole", { scale: "random(.5, 1.25)" }, 1.7 )
+      
+    let tl_wink = gsap.timeline({ repeat: -1, repeatDelay: 4.25, defaults: {
+      duration: .5, ease: "power2.Out"
+    } })
+      .addLabel("start")
+      .to("#upperlid", { morphSVG: "#upperlid-closed", duration: .05, ease: "power2.in" }, "start" )
+      .to("#lowerlid", { morphSVG: "#lowerlid-closed", duration: .05, ease: "power2.in" }, "start" )
+      .to("#eye-clip-clippath", { morphSVG: "#eye-clip-clippath-closed", duration: .05, ease: "power2.in" }, "start" )
+      .to("#upperlid", { morphSVG: "#upperlid" }, "start+=0.05" )
+      .to("#lowerlid", { morphSVG: "#lowerlid" }, "start+=0.05" )
+      .to("#eye-clip-clippath", { morphSVG: "#eye-clip-clippath" }, "start+=0.05" );  
+    
+    function illuy(){
+      return document.getElementById("illu-cgi").getBoundingClientRect().top ;
+    };
+    console.log( document.getElementById("illu-cgi").getBoundingClientRect().top );
+    console.log( illuy );   
+    let trigger = {
+      trigger: ".hero",
+      start: "0% 0%",
+      end: "100% center",
+      scrub: true,
+      toggleActions: "restart complete restart reverse"       
+    };
+    gsap.to("#illu-cgi", { transformOrigin: "100% 0", scale: .5, y: -illuy(),  scrollTrigger: trigger } )
+    window.addEventListener('resize', ()=>{
+      gsap.to("#illu-cgi", { transformOrigin: "100% 0", scale: .5, y: -illuy(),  scrollTrigger: trigger } )
+    } );
+  }
+
+  if(document.getElementById("illu-camera-driver")){
+    let count = { value: 16 };
+    let r = 90, 
+        arc = (x,y,s) => `A${r},${r},0,0,${s},${x},${y}`,
+        path = (i,d) => `<path transform='rotate(${i/+count.value*360})' ${d}></path>`;
+
+    function upd (val) {
+        let step = Math.PI*(0.5 + 2/+count.value);
+        let p1x = Math.cos(step)*r; 
+        let p1y = Math.sin(step)*r;
+        let cos = Math.cos(-val);
+        let sin = Math.sin(-val);
+        let c1x = p1x - cos * p1x - sin * p1y;
+        let c1y = p1y - cos * p1y + sin * p1x;
+        let dx = - sin * r - c1x;
+        let dy = r - cos * r - c1y;
+        let dc = Math.sqrt(dx*dx + dy*dy);
+        let a = Math.atan2(dy, dx) - Math.acos(dc/2/r);
+        let x = c1x + Math.cos(a)*r;
+        let y = c1y + Math.sin(a)*r;
+        let edge = `M${p1x},${p1y}${arc(0,r,0)}${arc(x,y,1)}`;
+        edges.innerHTML = bodies.innerHTML = '';
+        for (let i = 0; i < +count.value; i++) {
+            edges.innerHTML += path(i, `fill=none stroke=black stroke-width=1 d='${edge}'`);
+            bodies.innerHTML += path(i, `fill=white d='${edge}${arc(p1x,p1y,0)}'`); 
+        }
+    };
+
+    upd(1);
+
+    var startCount = 0,
+        num = {var:startCount};
+    function changeNumber() {
+      upd(0.001 * (num.var).toFixed() )
+    }
+
+    gsap.set("#all", { transformOrigin: "50% 50%" })
+    gsap.set("#edges path", { strokeWidth: 1 })
+
+    let tl_in = gsap.timeline({repeat: 0, repeatRefresh: true, repeatDelay: 1})
+    .to(num, {var: 1000, duration: 2.5, ease: "circ.inOut", onUpdate:changeNumber})
+    .to(num, {var: 300, duration: 1, ease: "circ.inOut", onUpdate:changeNumber})
+    .to(num, {var: 900, duration: 1, ease: "circ.inOut", onUpdate:changeNumber})
+    //.to(num, {var: 800, duration: .5, ease: "circ.inOut", onUpdate:changeNumber})
+
+    let tl_scroll = gsap.timeline({ 
+      defaults: {
+        ease: "none"
+      },
+      scrollTrigger: {
+        trigger: ".page-header",
+        start: "bottom top",
+        end: "+=1000",
+        scrub: true,
+        onEnter: ()=>{ tl_in.pause() },
+        onLeaveBack: ()=>{ tl_in.play() }
+      }
+    })
+      .to(num, {var: 0, onUpdate:changeNumber })
   }
 })

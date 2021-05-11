@@ -1,0 +1,47 @@
+---
+tags: work
+title: Etosis Work Example Page
+svg: "partials/svg/hero-illu-medical-device-company.svg"
+thumbnail: /img/thumbnail-medical-device-company.svg
+card: 
+  technologies: "All the technologies"
+  icon_1: camera
+  list_1: "One thing"
+  icon_2: user
+  list_2: "Two thing"
+  icon_3: tools
+  list_3: "Final thing"
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="https://use.typekit.net/him0xgd.css">
+    <link rel="stylesheet" href="{{ '/style.css' | url }}">
+  </head>
+  <body>
+  <div class="wrapper">
+    {% include "partials/header.njk" %}
+    <div class="page-content">
+      {% import "macros.html" as macros %}
+      <div class="hero-bg-illu">
+        {% include svg %}
+      </div>
+      {{ macros.work_hero(
+        herotitle = title, 
+        card_technologies = card.technologies, 
+        card_list = [ card.list_1, card.list_2, card.list_3 ]
+      ) }}
+      {{ content | safe }}
+    <section class="content-block">
+      {{ macros.cta() }}
+    </section>
+    {% include "partials/workcollection.njk" %}
+    </div>
+    {% include "partials/footer.njk" %}
+  </div>
+    <script src="{{ '/scripts.min.js' | url }}" async="" ></script>
+  </body>
+</html>

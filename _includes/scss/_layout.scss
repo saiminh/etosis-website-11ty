@@ -1,10 +1,18 @@
 html {
   scroll-behavior: smooth;
 }
+body {
+  background-color: #EEE;
+}
+.wrapper {
+  background-color: #FFF;
+  margin: 0 auto;
+  max-width: 1440px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
 .page-content {
-  padding: var(--padding-page) 15px var(--padding-page) var(--padding-page);
+  padding: var(--padding-page);
   overflow: hidden;
-  max-width: 66rem;
 }
 .hero {
   position: relative;
@@ -13,16 +21,6 @@ html {
 .hero h1 {
   @media screen and (min-width: 768px) {
     max-width: 48%;
-  }
-}
-.hero-bg-illu svg{
-  display: block;
-  width: 100%;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  @media screen and (min-width: 768px) {
-    height: 100%;
   }
 }
 .button {
@@ -55,11 +53,25 @@ html {
     width: calc(100% + 3rem);
   }
 }
+.ls-reverse {
+  @media screen and (min-width: 768px) {
+    flex-direction: row-reverse;
+  }
+}
 .column {
   @media screen and (min-width: 768px) {
     padding: 0 1.5rem;
     flex-basis: 50%;
+    box-sizing: border-box;
   }
+}
+.ls-66-33 .column:first-child,
+.ls-reverse.ls-66-33 .column:nth-child(2){
+  flex-basis: 66.6%;
+}
+.ls-66-33 .column:nth-child(2),
+.ls-reverse.ls-66-33 .column:first-child {
+  flex-basis: 33.3%;
 }
 img {
   width: 100%;
@@ -86,7 +98,7 @@ img {
     width: 20px;
     height: 34px;
     position: absolute;
-    top: 1rem;
+    top: 1.5rem;
     left: calc(-1 * var(--padding-page) - 1px );
     mix-blend-mode: multiply;
     @media (min-width: 768px) {

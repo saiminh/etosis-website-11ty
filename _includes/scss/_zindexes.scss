@@ -2,8 +2,13 @@
   z-index: 5;
 }
 #illu_about{
-  z-index: 4;
   pointer-events: none;
+  @media (min-width: 768px) {
+    z-index: 4;
+  }
+}
+#elcubo {
+  z-index: 5;
 }
 #etosis-logoshape-e,
 #etosis-logo-text-svg,
@@ -14,5 +19,5 @@
   z-index: 2;
 }
 .hero-bg-illu svg {
-  z-index: -1;
+  z-index: 0;
 }

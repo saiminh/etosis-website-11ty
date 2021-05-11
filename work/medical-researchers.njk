@@ -1,0 +1,44 @@
+---
+tags: work
+title: Medical researchers
+layout: layouts/work.njk
+svg: "partials/svg/hero-illu-medical-research.svg"
+thumbnail: /img/thumbnail-medical-research.svg
+card: 
+  technologies: "Medical, Python, C#"
+  icon_1: database
+  list_1: "Create a statistical database system"
+  icon_2: import
+  list_2: "Develop import tools for existing ad-hoc data"
+  icon_3: python
+  list_3: "Create Python web platform to run statistical tests"
+---
+{% import "macros.html" as macros %}
+
+{{ macros.summary( summarytext = [
+  'Early-stage medical studies are often very unstructured because medical researchers often react on a hunch. So collection of data is often equally unstructured, which becomes a problem as the study develops. How to develop a data collection platform that easily brings structure to previously collected data and ensures ongoing data is also collected correctly? For researchers who develop models that can predict progression of eye diseases.'
+] ) }}
+
+{{ macros.challenges(
+  challengestext = [
+    'Medical studies often start with a single or a small group of doctors detecting an interesting pattern. They develop a rough hypothesis about what could be causing or alleviating their patients’ conditions and develop this into a treatment through a series of studies and trials.',
+    'This means that data for these studies – especially in the early stages – is often collected very ad hoc. Doctors may not yet know which data is relevant and as a result not collect all the data, or collect a lot of irrelevant data.',
+    'Data management systems for medical studies and trials that deal with these issues need to support data entry that is both easy to use and easy to modify after it becomes clear which data is relevant and which is not.'
+  ],
+  challengesbullets = [
+    'Given the research, it was unclear what the data model would eventually look like.',
+    'Existing data had been collected very ad-hoc.'
+  ]
+) }}      
+
+{{ macros.solutions(
+  solutionstext = [
+    'As the data is medical data, privacy is always a concern. This means standard cloud solutions for storage cannot be used and tooling has to be developed to manage the data on private servers.'
+  ],
+  solutionsbullets = [
+    'A website with a very configurable database backend.',
+    'A Python web platform connecting the database to statistical analysis tools.',
+    'A suite of configurable import tools to bring existing data into the database.'
+  ]
+) }}      
+

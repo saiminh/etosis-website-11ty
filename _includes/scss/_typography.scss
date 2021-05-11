@@ -2,8 +2,11 @@ html, body {
   font-family: urbane, sans-serif;
   color: var(--color-text);
   font-style: normal;
-  font-size: 1.125rem;
+  font-size: 1rem;
   line-height: 1.5;
+  @media (min-width: 768px) {
+    font-size: 1.125rem;
+  }
 }
 .font-medium, body  {
   font-family: urbane, sans-serif;
@@ -39,9 +42,20 @@ h2 {
     font-size: 2rem;
   }
 }
+p:first-child {
+  margin-top: 0;
+}
 .content-block p {
   line-height: 1.6;
 }
+.has-dropcap:first-letter,
+.summary-block p:first-child::first-letter {
+  float: left;
+  font-size: 6rem;
+  line-height: 0.65;
+  margin: 0.1em 0.1em 0em 0;
+}
+
 .card {
   font-size: 1rem;
 }
@@ -54,11 +68,9 @@ h2 {
   font-size: .66em;
   font-weight: 500;
   color: var(--color-highlight);
+  margin-top: .33em;
   margin-bottom: .5em;
   @media screen and ( min-width: 768px ) {
     font-size: .6em;
   }
-}
-.content-block p {
-  max-width: 36em;
 }

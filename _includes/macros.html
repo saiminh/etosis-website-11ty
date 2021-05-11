@@ -20,3 +20,97 @@
   <a href="mailto:info@etosis.com" class="card-button">{{ icon('mail') }}Email us {{ icon('arrow-right') }}</a>
 </div>
 {% endmacro %}
+
+{% macro card_title_challenge() %}
+<h3 class="card-title">Challenge Overview</h3>
+{% endmacro %}
+
+{% macro card_title_solution() %}
+<h3 class="card-title">Solution Overview</h3>
+{% endmacro %}
+
+{% macro work_hero( herotitle, card_technologies, card_list ) %}
+<section class="hero">
+  <h1>{{ herotitle }} </h1>
+  <div class="card factsheet">
+    <h3 class="card-title">Overview</h3>
+    <dl>
+      <dt>Technologies</dt>
+      <dd>{{ card_technologies }}</dd>
+      <dt>Deliverables</dt>
+      <dd>
+        <ul>
+          {% for item in card_list %}
+            {% if item %} 
+              <li>{{ item }}</li> 
+            {% endif %}
+          {% endfor %}
+        </ul>
+      </dd>
+    </dl>
+  </div>
+</section>
+{% endmacro %}
+
+{% macro summary( summarytext ) %}
+<section class="content-block summary-block">
+  <h2>Summary</h2>
+  <div class="columns">
+    <div class="column">
+        {% for item in summarytext %}
+          <p>{{ item }}</p>
+        {% endfor %}
+    </div>
+  </div>
+</section>
+{% endmacro %}
+
+{% macro challenges( challengestext, challengesbullets ) %}
+<section class="content-block summary-block">
+  <h2>The challenges</h2>
+  <div class="columns">
+    <div class="column">
+        {% for item in challengestext %}
+          <p>{{ item }}</p>
+        {% endfor %}
+    </div>
+    <div class="column">
+      <div class="card">
+        <h3 class="card-title">Challenge Overview</h3>
+        <div class="card-section">
+          <ul class="card-section-list">
+            {% for bullet in challengesbullets %}
+              <li>{{ bullet }}</li>
+            {% endfor %}
+          </ul>
+        </div>   
+      </div>
+    </div>
+  </div>
+</section>
+{% endmacro %}
+
+{% macro solutions( solutionstext, solutionsbullets ) %}
+<section class="content-block summary-block">
+  <h2>The solution</h2>
+  <div class="columns">
+    <div class="column">
+        {% for item in solutionstext %}
+          <p>{{ item }}</p>
+        {% endfor %}
+    </div>
+    <div class="column">
+      <div class="card">
+        <h3 class="card-title">Solution Overview</h3>
+        <div class="card-section">
+          <ul class="card-section-list">
+            {% for bullet in solutionsbullets %}
+              <li>{{ bullet }}</li>
+            {% endfor %}
+          </ul>
+        </div>   
+      </div>
+    </div>
+  </div>
+</section>
+{% endmacro %}

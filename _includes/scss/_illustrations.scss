@@ -1,4 +1,21 @@
-#Layer_1 path,
+.hero-bg-illu svg{
+  display: block;
+  width: 100%;
+  position: fixed;
+  bottom: 0%;
+  left: 0;
+  overflow: visible;
+  @media screen and (min-width: 768px) {
+    height: 100%;
+    bottom: 0;
+  }
+  @media screen and (min-width: 1440px) {
+    width: 1440px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+#illu-home path,
 #illu_about circle, 
 #illu_serious-gaming line,
 #illu-medical-company #eye, #illu-medical-company #background,
@@ -7,7 +24,6 @@
 }
 #illu_about{
   width: 140%;
-  height: 60%;
   @media (min-width: 768px){
     left: auto;
     right: -44%;
@@ -15,6 +31,7 @@
     overflow: visible;
     width: 130%;
     height: 130%;
+    transform: none;
   }
 }
 #illu_serious-gaming {
@@ -24,54 +41,103 @@
   width: auto;
   left: auto;
   right: 0;
+  @media screen and (min-width: 1440px) {
+    width: 1440px;
+    left: 50%;
+    right: auto;
+  }
 }
-div#cube {
-  position: absolute;
-  top: calc(50% - 100px);
-  left: calc(50% - 100px);
-  width: 150px;
-  height: 150px;
-  z-index: 10000;
-  visibility: hidden;
-}
-[id^="cube-"] {
-  position: absolute;
-  text-align: center;
-  left: 0;
+.elcubo-container {
+  width: 50%;
+  height: 100%;
+  position: fixed;
   top: 0;
-  width: 150px;
-  height: 150px;
-  color: #FFF;
-  background-color: #000;
-  //border: 3px solid #000;
-  transform-origin: 50% 50% -75px;
-  //overflow: hidden;
-  &:before {
-    content: '';
-    position: absolute;
-    top: 2px;
-    left: 2px;
-    right: 2px;
-    bottom: 2px;
-    background-color: #FFF;
+  left: 25%;
+  visibility: hidden;
+  opacity: 0;
+  @media (min-width: 768px) {
+    width: 33%;
+    left: 50%;
   }
 }
-#cube-left, #cube-right {
-  border: none;
-  background-color: transparent;
-  &:before {
-    content: none;
+#elcubo {
+  left: auto;
+  transform: none;
+  width: auto;
+  height: auto;
+  @media (min-width: 768px){
+    top: 2rem;
   }
-  & div {
-    background-color: #000;
-    &:before {
-      content: '';
-      position: absolute;
-      top: 2px;
-      left: 2px;
-      right: 2px;
-      bottom: 2px;
-      background-color: #FFF;
-    }
+}
+#financial-services {
+  bottom: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  height: auto;
+  width: 120%;
+  overflow: visible;
+  @media (min-width: 768px){
+    top: 10%;
+    width: 100%;
+  }
+  @media (min-width: 1440px){
+    width: 1440px;
+    left: 50%;
+  }
+}
+#financial-services > g > * {
+  visibility: hidden;
+  opacity: 0;
+}
+#illu-medical-research {
+  @media (min-width: 768px) {
+    width: auto;
+    height: calc(100% - 2rem);
+    right: 2rem;
+    left: auto;
+    bottom: 2rem;
+    top: auto;
+  }
+  @media (min-width: 1440px){
+    width: 1440px;
+    right: auto;
+    left: 50%;
+  }
+}
+#outlook {
+  visibility: hidden;
+  opacity: 0;
+}
+#illu-cgi{
+  width: 75%;
+  left: 12.5%;
+  @media (min-width: 768px){
+    max-width: 60%;
+    bottom: 0;
+    left: auto;
+    right: 2em;
+  }
+  @media (min-width: 1440px){
+    width: 45%;
+    right: 0;
+  }
+}
+#illu-camera-driver {
+  height: 100vh;
+  width: 100vw;
+  top: 0;
+  bottom: 0;
+  @media (orientation: landscape) {
+    width: 100vw;
+    height: 120vh;
+    top: -10vh;
+  }
+  @media (orientation: landscape) and (min-width: 1440px){
+    width: 1440px;
+    height: auto;
+    overflow: hidden;
+  }
+  & #edges path {
+    stroke-width: .2;
   }
 }

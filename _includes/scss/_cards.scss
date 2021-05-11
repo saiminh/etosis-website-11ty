@@ -2,7 +2,15 @@
   background-color: var(--color-card-bg);
   border-radius: 10px;
   padding: 0;
+  margin: 0 1rem 1rem 0;
   overflow: hidden;
+  font-size: .75em;
+  @media (min-width: 480px) {
+    font-size: .9em;
+  }
+  @media (min-width: 768px) {
+    margin: 0;
+  }
 }
 .work-collection-card {
   display: flex;
@@ -19,35 +27,39 @@
   transform: translateX(7px);
 }
 .cta-card {
-  max-width: 33rem;
+  max-width: 33em;
   margin: 0 auto;
-  padding-top: 1rem;
+  padding-top: 1em;
   & .card-title,
   & .card-section {
-    padding-left: 2rem;
-    padding-right: 2rem;
+    padding-left: 2em;
+    padding-right: 2em;
   }
 }
 .card-title {
   background-color: var(--color-highlight);
   margin: 0;
-  padding: .75rem 1.5rem;
+  padding: .5em 1em;
   border-radius: 10px 10px 0 0 ;
+  @media screen and (min-width: 768px){
+    padding: .75em 1.5em;
+  }
 }
 .card-section {
   border-bottom: 1px solid #DDD;
-  padding: .75rem 1.5rem;
+  padding: .75em 1.5em;
   .work-collection-card & {
     display: flex;
     align-items: baseline;
-    padding-left: 1rem;
+    padding-left: 1em;
   }
 }
 .card-section:last-child {
-  padding-bottom: 1.5rem;
+  padding-bottom: 1.5em;
+  border-bottom: none;
 }
 .work-collection-card .card-section:last-child {
-  padding-bottom: .75rem;
+  padding-bottom: .75em;
   border-bottom: none;
 }
 .card-section-title {
@@ -57,7 +69,8 @@
   margin: 0;
   padding-left: 1em;
   & li {
-    margin-bottom: .5em;
+    margin: 0;
+    padding: .25em 0;
   }
   & li:last-child {
     margin-bottom: 0
@@ -68,17 +81,29 @@
 }
 .card dt {
   font-weight: 600;
-  padding: .75rem 1.5rem 0 1.5rem; 
+  padding: .5rem 1rem 0 1rem;
+  @media screen and (min-width: 768px){
+    padding: .75rem 1.5rem 0 1.5rem; 
+  }
 }
 .card dd {
   margin-left: 0;
-  padding: 0 1.5rem .75rem 1.5rem;
   border-bottom: 1px solid #DDD;
+  padding: 0 1rem .5rem 1rem;
+  @media screen and (min-width: 768px){
+    padding: 0 1.5rem .75rem 1.5rem;
+  }
 }
 .card dl > dd:last-child {
   margin-bottom: 0;
-  padding-bottom: 1.5rem;
+  padding-bottom: 1rem;
   border-bottom: none;
+  @media screen and (min-width: 768px){
+    padding-bottom: 1.5rem;
+  }
+}
+.card ul {
+  padding-left: 1em;
 }
 .card-illu {
   width: 100%;
@@ -117,9 +142,8 @@ a.card-button {
   }
 }
 .hero .card {
-  margin-top: 50vh;
   @media screen and (min-width: 768px){
-    margin-top: 0;
+    width: auto;
     max-width: 50%;
     min-width: 33%;
     display: inline-block;

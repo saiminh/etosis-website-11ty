@@ -1,3 +1,49 @@
 footer {
+  background-color: var(--color-highlight);
+  color: var(--color-text);
   position: relative;
+  padding: var(--padding-page) 15px var(--padding-page) var(--padding-page);
+  @media (min-width: 768px){
+    display: flex;
+  }
+  & .etosis-logo-text, & .etosis-logo-text:link, & .etosis-logo-text:visited {
+    padding-left: 0;
+    display: block;
+    @media (min-width: 768px){
+      margin-top: -1rem;
+    }
+  }
+  & .column {
+    margin-bottom: 1.5rem;
+    @media (min-width: 768px){
+      margin-bottom: 0;
+      flex: 0 25%;
+    }
+  }
+  & .column:nth-child(2) {
+    flex: 0 75%;
+  }
+}
+#page-footer-nav {
+  margin-bottom: 1.5rem;
+  @media (min-width: 768px){
+    height: 80px;
+    margin-top: -1rem;
+    margin-bottom: 0;
+    display: flex;
+  }
+}
+#page-footer-nav a, #page-footer-nav a:link, #page-footer-nav a:visited {
+  margin-right: 40px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  line-height: 1.5;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--color-text);
+  display: block;
+  @media (min-width: 768px){
+    border-bottom: none;
+    padding: 30px 0;
+    display: inline;
+  }
 }

@@ -1,0 +1,52 @@
+---
+tags: work
+title: Measuring eyes
+layout: layouts/work.njk
+svg: "partials/svg/hero-illu-medical-device-company.svg"
+thumbnail: /img/thumbnail-medical-device-company.svg
+card: 
+  technologies: "Image Processing, Medical, OpenCV, C++, C#, Matlab"
+  icon_1: camera
+  list_1: "Develop image processing algorithms"
+  icon_2: user
+  list_2: "Create a user application"
+  icon_3: tools
+  list_3: "Develop production tooling"
+---
+{% import "macros.html" as macros %}
+
+{{ macros.summary(
+  summarytext = [
+        'Developing and maintaining the software architecture for a groundbreaking medical device that measures eyes to fit custom made contact lenses for consumers and research has its challenges.',
+      
+        'Especially when you want it to be unique in its accuracy and capability to measure the whole eye instead of just the cornea. Allowing for much larger contact lenses with a more comfortable fit and better correction.'
+  ]
+)}}
+
+{{ macros.challenges(
+  challengestext = [
+    'Medical devices can take decades to development. From proof-of-concept to production. This particular medical device was acquired directly from a university. Both the hard and the software were prototypes; developed in the 1990s.',
+    
+    'It fulfilled its function well, unfortunately the hardware was outdated and the software did not measure up to modern standards. A one-off with largely undocumented software which would be difficult to get regulatory approval for.'
+  ],
+  challengesbullets = [
+    'Client had acquired the rights to a prototype of a medical device',
+    'Existing software was highly experimental and outdated',
+    'Given the prototype nature, the software was not suitable for real-world use, nor was it possible to make new instances of the device'
+  ]
+)}}
+
+{{ macros.solutions(
+  solutionstext = [
+    'To bring the device up to date a new software architecture was developed from scratch. With the ability to accommodate future improvements. The software was designed and built to meet all current regulatory standards, making approval straightforward.',
+
+    'The existing image processing algorithms were reverse-engineered and improved upon. Increasing both accuracy and speed of the measurements allowed additional algorithms to be developed to calculate parameters and maps derived from raw measurements. To allow new devices to be built more easily production tooling was developed.',
+
+    'Which helped the hardware team in evaluating components, allowing components to be properly aligned and calibrated before they are shipped. Using these tools we have been able to outsource device production to a specialised company.'
+  ],
+  solutionsbullets = [
+    'Design a new software architecture from scratch, focused on future needs and regulatory requirements',
+    'Reverse engineer, update and improve the existing image processing algorithms',
+    'Developed additional tooling to help align and calibrate new to built devices'
+  ]
+)}}

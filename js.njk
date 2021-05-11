@@ -1,0 +1,14 @@
+---
+permalink: scripts.min.js
+---
+{% set js %}
+{% include "js/gsap.min.js" %}
+{% include "js/ScrollTrigger.min.js" %}
+{% include "js/DrawSVGPlugin.min.js" %}
+{% include "js/MorphSVGPlugin.min.js" %}
+{% include "js/gsap-animations.js" %}
+{% include "js/navigation.js" %}
+{% include "js/displayHelsinkiTime.js" %}
+{% endset %}
+
+{{ js | jsmin | safe }}

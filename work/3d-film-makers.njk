@@ -1,0 +1,48 @@
+---
+tags: work
+title: 3D Film makers
+layout: layouts/work.njk
+svg: "partials/svg/hero-illu-cgi.svg"
+thumbnail: /img/thumbnail-cgi.svg
+card: 
+  technologies: mage Processing, OpenCV, 3D, C++
+  icon_1: cube
+  list_1: Develop 3D reconstruction software based on 2D images
+  icon_2: video
+  list_2: "Create video capturing software"
+  icon_3: user
+  list_3: "Improve user applications"
+---
+{% import "macros.html" as macros %}
+
+{{ macros.summary( 
+  summarytext = [
+    'These days films include a lot of computer-generated imagery. Due to its complexity it is still very difficult to create realistic looking eyes. Etosis developed software to control a scanning device which can create highly realistic 3D models of the eye, by combining multiple images captured with different exposures at different angles.'
+  ] 
+) }}
+
+{{ macros.challenges(
+  challengestext = [
+    'A lot of computer-generated graphics in films and games are created by motion capturing actors and scanning 3D models of them. Eye3D is a start-up that develops devices primarily to create realistic looking eyes for films and games. While the actor’s physical characteristics and movements can be accurately recorded, it has proven difficult to capture realistic looking eyes. Because they display complex colouring and movement, that need to be accurately represented to create a believable character. And bridge the so-called ‘uncanny valley’.',
+    
+    'There are Medical devices available that can measure the visible parts of the eye perfectly, but not the rest of the eyeball. Furthermore, as these devices are meant for medical purposes, they do not focus on the aesthetic features of the eye. Eye3D has extended one of these medical devices with additional cameras and lighting sources, to capture both the shape and colour information of the eye at the same time. However, creating a realistic eye model from its data was challenging.'
+  ],
+  challengesbullets = [
+    'Realistic looking computer-generated eyes are notoriously difficult to create',
+    'It is easy to measure the shape of the visible part accurately, but difficult to measure the whole eye',
+    'Devices to scan eyes are generally built for medical purposes'
+  ]
+) }}
+
+{{ macros.solutions(
+  solutionstext = [
+    'The colour images and shape data needed detectors that could identify features that are visible on different images and on the shape data. By doing so the different data sets can be accurately aligned and the images can be quickly applied onto the shape data. Creating a realistic looking model of the visible part of the eye.',
+    'However, to also accurately recreate the movement, it is necessary to have a realistic model of the whole eyeball. Based on known characteristics of eyeballs a generic model was created which is automatically modified to match with the measured parts of the eye.',
+    'In order to ensure great quality results every time the capturing application was rewritten to be very easy to use and to ensure an operator can capture high-quality images with minimal training.'
+  ],
+  solutionsbullets = [
+    'Develop algorithms and software to merge the colour images onto the measured shape of the eyeball, creating a realistic looking model of the visible parts of the eye.',
+    'Develop algorithms to extrapolate the full eye ball, based on the visible parts.',
+    'Rewrite existing capturing software to be easier to use and increases the quality of measurements.'
+  ]
+) }}

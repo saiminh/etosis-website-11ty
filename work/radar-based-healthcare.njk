@@ -1,0 +1,48 @@
+---
+tags: work
+title: Radar based Healthcare
+layout: layouts/work.njk
+svg: "partials/svg/hero-illu-medical-device-company.svg"
+thumbnail: /img/thumbnail-medical-device-company.svg
+card: 
+  technologies: "Embedded systems, Electronics, Linux drivers, C++, Matlab"
+  icon_1: camera
+  list_1: "Create electronic prototypes"
+  icon_2: user
+  list_2: "Develop Linux drivers"
+  icon_3: tools
+  list_3: "Improve software performance"
+---
+{% import "macros.html" as macros %}
+
+{{ macros.summary( 
+  summarytext = [
+    'Sensitive radar sensors can detect vital signs such as heart rate and breathing frequency by detecting chest, and even heart movement. When used in hospitals, care facilities and at home this can quickly alert care professionals in case of an emergency. This project helped turn a prototype into a production model. A Linux system running on ARM processors turns raw radar sensor data into actionable events, and connects to external networks to store these events in external systems.'
+  ] 
+) }}
+
+{{ macros.challenges(
+  challengestext = [
+    'Developed by a research lab the radar sensor was a self-contained unit, requiring bulky interfacing electronics to convert the output to a USB connection with supporting software that was developed to run on powerful desktop computers. It needed to connect it to a small (and cheap) embedded system. Additionally, the original software only provided raw radar output, which needed to be converted into real world signals, such as heart rate, or movement of patients.'
+  ],
+  challengesbullets = [
+    'Radar sensors need complex interfacing electronics to communicate with integrated embedded systems.',
+    'The developed radar sensors software was too slow to run on the embedded system and did not provide the required outputs.',
+    'Radar sensor output could not be reliably read using standard drivers.'
+  ]
+) }}
+
+{{ macros.solutions(
+  solutionstext = [
+    'To connect the sensor to the embedded system, interfacing electronics that handled power supply, signal conversions and external connections using a 3G mobile network was designed.',
+    
+    'Additionally, optimisation of existing radar sensor software allowed it to run in real-time on an ARM processor by rewriting the most time-consuming parts in an ARM assembler that targets the embedded co-processors. To deal with data loss caused by the high data rate of the radar data, a specialised Linux driver for the radar sensor was developed.',
+    
+    'Although the electronics use a fairly standard high-speed USB component to communicate, it caused problems in the system due to the fact that radar sensors produce data in small bursts of large amounts of data. These bursts overloaded the buffers in the driver, which caused data to be lost. A custom USB driver and user-mode software ensured this data was delivered correctly.'
+  ],
+  solutionsbullets = [
+    'Prototype interface electronics to connect to a range of embedded systems.',
+    'Optimise existing software to run comfortably on embedded controllers',
+    'Extend software to allow use in a wider range of applications.'
+  ]
+) }}
