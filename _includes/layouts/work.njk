@@ -25,7 +25,7 @@ layout: layouts/base
 ) }}
 {{ content | safe }}
 <section class="content-block">
-  {{ macros.cta() }}
+  {{ macros.cta( email = contactEmail ) }}
 </section>
 {% include "partials/workcollection.njk" %}
     
