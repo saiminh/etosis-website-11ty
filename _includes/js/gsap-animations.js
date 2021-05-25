@@ -4,26 +4,35 @@ gsap.registerPlugin(MorphSVGPlugin);
 
 window.addEventListener('load', function(){
   if ( document.getElementById("illu-home") ){
+    
     let homeillupaths = document.querySelectorAll("#illu-home path");
-    let tlSVGin = gsap.timeline({ paused: false })
-      .set(homeillupaths, { autoAlpha: 1, drawSVG: "50% 50%" })
-      .to(homeillupaths, { 
-        drawSVG: "0% 100%", 
-        stagger: { amount: 1, from: "end" }, 
-        duration: 2,     
-        ease: "circ.inOut"
-      },0);
-    gsap.fromTo(homeillupaths, {
-      drawSVG: "0% 100%",
-    }, {
+    let tlSVGin = gsap.timeline({ paused: false});
+    
+    tlSVGin.set(homeillupaths, { autoAlpha: 1, drawSVG: "50% 50%" });
+
+    for(var i = 0 ; i<=homeillupaths.length; i ++){
+      tlSVGin.to(homeillupaths[i], { 
+          drawSVG: "random(0, 5)% random(95, 100)%", 
+          duration: 3.5,     
+          ease: "circ.inOut",
+          repeat: -1,
+          delay: i*.015,
+          yoyo: true
+        }, 0)        
+      };
+
+    gsap.to(homeillupaths, {
       drawSVG: "100% 100%",
       stagger: { amount: 1 },
       scrollTrigger: {
+        onEnter: () => { tlSVGin.pause() },
+        onLeaveBack: () => { tlSVGin.play() },
         trigger: ".hero",
-        start: "33% center",
+        start: "10% top",
         end: "130% center",
         scrub: true,
-        ease: "linear"
+        ease: "linear",
+        //markers: true
       }
     })
   };
@@ -48,8 +57,8 @@ window.addEventListener('load', function(){
       ease: "power4.inOut", //"steps(550)",
       scrollTrigger: {
         trigger: ".hero",
-        start: "30% center",
-        end: "100% center",
+        start: "10px top",
+        end: "130% center",
         scrub: true,
         toggleActions: "restart complete restart reverse",
         onEnter: () => { tlSVGin.seek(5) }
@@ -402,5 +411,65 @@ window.addEventListener('load', function(){
       }
     })
       .to(num, {var: 0, onUpdate:changeNumber })
+  }
+  if(document.getElementById("illu-radar")){
+    const svgel = document.getElementById("illu-radar");
+    
+    let tlRadar = gsap.timeline({ paused: false, repeat: 0 });
+    for(let i = 0; i <= 21; i++) {
+      let newCircle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+      newCircle.setAttribute("cx", "1920");
+      newCircle.setAttribute("cy", "719");
+      newCircle.setAttribute("r", 0);
+      svgel.appendChild(newCircle);
+      tlRadar.to(newCircle, {
+        attr:{
+          r: 700
+        },
+        ease: "power2.out",
+        duration: 9,
+        delay: (i+1)*.2,
+        repeat: -1,
+      }, 0)
+      .fromTo(newCircle, {
+        stroke: "#000000"
+      }, {
+        stroke: "#000000",
+        duration: 1,
+        repeat: -1,
+      }, 0)
+      .fromTo(newCircle, {
+        stroke: "#000000"
+      }, {
+        stroke: "#FFF",
+        duration: 1,
+        repeat: -1,
+        repeatDelay: 8,
+      }, 8+(i+1)*.2)
+    }
+    gsap.to("#illu-radar", {
+      transformOrigin: "100% 0%",
+      scale: 0.66,
+      scrollTrigger: {
+        trigger: ".hero",
+        start: "10px top",
+        end: "150% center",
+        scrub: true,
+        toggleActions: "restart complete restart reverse",
+      }
+    })
+    
+    let heartrate = gsap.timeline({paused: false, repeat: -1, repeatDelay: 2})
+      .set("#filler",{
+        transformOrigin: "0% 50%",
+        xPercent: 300
+      })
+      .fromTo("#graph", {
+        xPercent: 0
+      },{
+        xPercent: 75,
+        duration: 7,        
+        ease: "none"
+      })      
   }
 })

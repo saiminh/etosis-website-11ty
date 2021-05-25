@@ -23,6 +23,7 @@
     "eleventy-plugin-svg-contents": "^0.7.0",
     "gsap": "^3.5.1",
     "sass": "^1.29.0",
+    "smoothscroll-polyfill": "^0.4.4",
     "terser": "^5.7.0"
   }
 }

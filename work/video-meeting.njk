@@ -17,36 +17,34 @@ card:
 
 {{ macros.summary( 
   summarytext = [
-    'Video meetings have become a standard part of our work day. Most meeting applications provide additional tools to present data during meetings. However, they are specific to the application and cannot be modified. Galactic develops technology that allows data to be presented directly inside the video stream, which can be used in any application that supports cameras. Etosis developed the windows drivers and applications to implement this technology.'
+    'Video meetings have become a standard part of our workday. Most meeting applications provide additional tools to present data during meetings. However, they are specific to the application and cannot be modified. This client develops technology that allows data to be presented directly inside the video stream, which can be used in any application that supports cameras. Etosis developed the Windows drivers and applications to implement this technology.'
   ] 
 ) }}
 
 {{ macros.challenges(
   challengestext = [
-    'Galactic developed a virtual camera that can be used to overlay real-time information to enhance the video conferencing experience. Windows supports a number of different frameworks that can be used to create virtual cameras.',
+    'The client developed a virtual camera that can overlay real-time information to enhance the video conferencing experience. Windows supports several different frameworks that can create virtual cameras. However, these generally require applications to support this explicitly.',
     
-    'However, these generally require applications to support this explicitly. To have a virtual camera act like a real camera in every application, it is necessary to create a camera driver. Driver development is notoriously tricky. Any error can lead to a complete system crash.',
-    
-    'These errors are also very difficult to debug, as they may occur only in very specific circumstances. Furthermore, given the fact that Galactic is a start-up, they want to quickly change camera behaviours as their business develops.'
+    'To have a virtual camera act like a real camera in every application, one must create a camera driver. Driver development is notoriously tricky and any error can lead to a complete system crash. These errors are also very difficult to debug, as they may occur only in very specific circumstances. Furthermore, given the fact that the client is a startup, they want to efficiently modify camera behaviours as their business develops.'
   ],
   challengesbullets = [
     'Windows driver development is tricky, often leading to “blue screens of death”.',
     'Debugging drivers is extremely difficult.',
-    'Client is a start-up and needs to be agile.'
+    'Client is a startup and needs to be agile.'
   ]
 ) }}      
 
 {{ macros.solutions(
   solutionstext = [
-    'To create a reliable and easily modifiable virtual camera driver you need a driver that is as minimal as possible. One that only knows how to display images that are created by a user-mode process.',
+    'Etosis developed a reliable driver that only knows how to do one thing: display images that are created by a user-mode process.',
 
-    'As the driver does almost no work, it is a lot easier to ensure that it does not cause errors. The hard work is done in the user-mode process, which can easily be restarted should an error occur.',
+    'As the driver itself does almost no work, it’s a lot easier to ensure that it does not cause errors. Etosis created a user-mode process which dealt with the more complex work and that could be easily restarted should an error occur. This simple process made it much easier to add logging, configuration and other tooling.',
 
-    'Because it is a regular user-mode process, it is also much easier to add logging, configuration and other tooling to make supporting it much easier. To create the overlays, an embedded web browser is used. This allows the overlays to be developed in standard HTML on a normal web browser. To update the overlays, Galactic only needs to update the code on their web server.'
+    'Etosis built an embedded browser to create the overlays. This allowed the overlays to be developed in standard HTML on a normal web browser. To update the overlays, the client only needed to update the code on their web server.'
   ],
   solutionsbullets = [
-    'A minimal driver which only forwards images.',
-    'A user-mode process for the difficult work, which is easier to debug and support.',
-    'An embedded web browser to deal with actual creation of the overlays.'
+    'Developed a minimal driver, which only forwards images.',
+    'Created a user-mode process which is easier to debug and support.',
+    'Built an embedded web browser to deal with the creation of overlays.'
   ]
 ) }}      

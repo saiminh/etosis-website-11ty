@@ -7,11 +7,11 @@ thumbnail: /img/thumbnail-gamingcompany.svg
 card: 
   technologies: "Encryption, Unity3D, C#"
   icon_1: cube
-  list_1: "Invented fully configurable 3D system"
+  list_1: "Invent a fully configurable 3D system"
   icon_2: unity
-  list_2: "Developed UI interface for Unity3D"
+  list_2: "Develop a UI interface for Unity3D"
   icon_3: lock-plus
-  list_3: "Encrypted delivery of copyrighted assets"
+  list_3: "Encrypt the delivery of copyrighted assets"
 ---
 {% import "macros.html" as macros %}
 <div class="hero-bg-illu">
@@ -133,36 +133,36 @@ card:
 ) }}
 {{ macros.summary( 
   summarytext = [
-    'Serious game development needs serious tooling. Especially when you are looking to import existing assets into new and improved game engines.'
+    'Serious game development requires serious tooling, especially when you are looking to import existing assets into new and improved game engines.'
   ] 
 ) }}
 
 {{ macros.challenges(
   challengestext = [
-    'Encryption was a particular concern as Unity’s standard asset downloading algorithms provided no protection and allowed anyone to download and re-use the assets at will.',
-
-    'So, how do you import large numbers of assets and scenarios developed for other game engines into Unity? Without having to rebuild them from the ground up. While meticulously documenting and encrypting the entire migration process.'
+    'Encryption was a particular concern as Unity’s standard asset-downloading algorithms provided no protection and allowed anyone to download and reuse the assets at will.',
+    
+    'So, how do you import large numbers of assets and scenarios developed for other game engines into Unity, without having to rebuild them from the ground up, while meticulously documenting and encrypting the entire migration process?'
   ],
   challengesbullets = [
-    'Integrate existing assets and procedural code into Unity. Which is designed primarily as a tool to build games using its own UI.',
+    'Integrating existing assets and procedural code into Unity, which is designed primarily as a tool to build games using its own UI.',
 
-    'Create a highly complex user interface that could not easily be built using Unity’s built-in UI.',
+    'Creating a highly complex user interface using Unity’s built-in UI.',
 
-    'Provide protection as Unity’s asset downloading algorithms allow anyone to download and re-use assets.'
+    'Adding extra security as Unity’s asset downloading algorithms allow anyone to download and re-use assets.'
   ]
 ) }}
 
 {{ macros.solutions(
   solutionstext = [
-    'Build a layer on top of Unity that dynamically generates environments from an existing scenario description file: an engine that automatically downloads the required assets and supports generating new game objects as the scenario unfolds.',
+    'Etosis built a layer on top of Unity that dynamically generated environments from an existing scenario description file: an engine that automatically downloaded the required assets and supported generating new game objects as the scenario unfolded.',
     
-    'Develop an encryption system to protect assets like models and textures which can be smoothly integrated into the existing asset pipeline. With the Unity engine providing support for dynamic loading of these assets via the internet. In short, a system that manipulates file content without requiring a change of format.',
+    'To protect assets like models and textures, Etosis developed an encryption system which could be integrated into the existing asset pipeline with the Unity engine providing support for dynamic loading of these assets via the internet. In short, a system that manipulated file content without requiring a change of format.',
 
-    'Create an extensive UI framework for the Unity 3D engine to offset the complex nature of game development. Allow developers to efficiently build user interfaces to control simulations using both standard components, such as buttons and drop down lists, as well as data-driven components and forms. All of which can easily be tied into the simulation engine to only show up when needed and perform actions relevant to the current scenario.'
+    'Last, Etosis created an extensive UI framework for the Unity 3D engine to offset the complex nature of game development. This allowed developers to build user interfaces to control simulations using both standard components, such as buttons and drop-down lists, as well as data-driven components and forms. The framework ensured that all of this could easily tie into the simulation engine so that it only showed up when needed, and perform actions relevant to the current scenario.'
   ],
   solutionsbullets = [
     'Developed a framework allowing assets to be imported and generated procedurally.',
     'Built a UI framework on top of the Unity engine allowing data binding, forms and animations.',
-    'Developed an asset encryption algorithm that works on top of Unity’s asset downloading algorithms.'
+    'Developed an asset-encrypting algorithm that works on top of Unity’s asset-downloading algorithms.'
   ]
 ) }}

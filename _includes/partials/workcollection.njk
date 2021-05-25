@@ -1,8 +1,11 @@
 {% import "macros.html" as macros %}
 <div class="content-block" id="work">
-  <h2>
-    Some of our favorite problems solved so far
-  </h2>
+      <h2>
+        Some of our favourite problems solved so far
+      </h2>
+      <p class="disclaimer">
+        We have kept our clients anonymous as much of the work we do is subject to NDA’s. Your work will be treated with the same discretion.
+      </p>
   <div class="work-collection">
   {%- for work in collections.work -%}    
     <a href="{{ work.url }}" class="card work-collection-card{% if work.url == page.url %} currently-viewing{% endif %}">
@@ -26,5 +29,23 @@
       </div>
     </a>
   {%- endfor -%}
+    <a href="mailto:info@etosis.com" class="card work-collection-card">
+      <div class="card-description">
+        <header class="card-title">Your project here?</header>
+        <div class="card-illu"><img src="/img/thumbnail-yourproject.svg" /></div>
+        <div class="card-section">
+          {{ macros.icon( 'brief' )}}Create solid brief
+        </div>
+        <div class="card-section">
+          {{ macros.icon( 'key' )}}Identify key challenges
+        </div>
+        <div class="card-section">
+          {{ macros.icon( 'code' )}}Devise effective solution
+        </div>
+      </div>
+      <div class="card-button">
+       Get in touch {{ macros.icon('arrow-right') }}
+      </div>
+    </a>
   </div>
 </div>

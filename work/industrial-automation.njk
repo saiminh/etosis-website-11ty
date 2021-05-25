@@ -9,35 +9,33 @@ card:
   icon_1: cube
   list_1: "Develop a 3D positioning system"
   icon_2: camera
-  list_2: "Using a single camera"
+  list_2: "Use a single camera"
 ---
 {% import "macros.html" as macros %}
 
 {{ macros.summary( 
   summarytext = [
-    'A 3D positioning system that determines an object’s location in three dimensions using a single camera. Achieved by moving the camera relative to the object, combining multiple images to determine its location.'
+    'How do you create a 3D positioning system that determines an object’s location in three dimensions using a single camera? By moving the camera relative to the object, combining multiple images to determine its location.'
   ] 
 ) }}
 
 {{ macros.challenges(
   challengestext = [
-    'A single camera without the possibility for additional sensors. Movement could be controlled reliably but initial and final position had to be validated to accommodate for component tolerances.'
+    'Creating a 3D positioning system consisting of a single camera without the possibility of additional sensors is quite a challenge. Especially when movement could be controlled reliably but the initial and final position had to be validated to accommodate for component tolerances.'
   ],
   challengesbullets = [
-    'Accurate 3D positioning generally requires at least two cameras, or a range of sensors',
-    'This system requires a single camera'
+    'Accurate 3D positioning generally needs at least two cameras, or a range of sensors.',
+    'This system could only handle a single camera.'
   ]
 ) }}
 
 {{ macros.solutions(
   solutionstext = [
-    'By adding a colour-coded background behind the object, the angle between the camera and the background can be determined.', 
-    
-    'Allowing the position to be detected fairly accurately in two dimensions. By rotating the object relative to the camera and capturing multiple images at different angles allows the position to be determined in three dimensions, improving accuracy at the same time.'
+    'By adding a colour-coded background behind the object, the angle between the camera and the background could be determined. This allowed the position to be detected accurately in two dimensions. By rotating the object relative to the camera and capturing multiple images at different angles, it was possible to determine the position in three dimensions, while improving accuracy at the same time.'
   ],
   solutionsbullets = [
-    'Determine 3D positions by moving and rotating the camera along different axes',
-    'Allow the different images to be correlated with simple markers.',
-    'Accurately determine the 3D position without device modifications.'
+    'Determined 3D positions by moving and rotating the camera along different axes.',
+    'Allowed the different images to be correlated with simple markers.',
+    'Accurately determined the 3D position without device modifications.'
   ]
 ) }}

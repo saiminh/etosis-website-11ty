@@ -11,6 +11,7 @@ module.exports = function(eleventyConfig) {
   });
   //svgContents
   eleventyConfig.addPlugin(svgContents); 
+  //jsmin
   eleventyConfig.addNunjucksAsyncFilter("jsmin", async function (
     code,
     callback

@@ -19,6 +19,7 @@ body {
   min-height: 100vh;
 }
 .hero h1 {
+  margin-top: 0;
   @media screen and (min-width: 768px) {
     max-width: 48%;
   }
@@ -85,7 +86,7 @@ img {
 }
 .content-block {
   position: relative;
-  padding: 1.5rem 0;
+  padding: 1rem 0;
   margin-bottom: 2.5rem;
   & > :first-child {
     margin-top: 0;
@@ -98,12 +99,13 @@ img {
     width: 20px;
     height: 34px;
     position: absolute;
-    top: 1.5rem;
+    top: 15px;
     left: calc(-1 * var(--padding-page) - 1px );
     mix-blend-mode: multiply;
     @media (min-width: 768px) {
       width: 26px;
       height: 40px;
+      top: 19px;
     }
   }
 }

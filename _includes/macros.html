@@ -114,3 +114,29 @@
   </div>
 </section>
 {% endmacro %}
+
+{% macro testimonials( 
+  testimoniallist = [
+    {sayer:"Firstname Lastname", said:"Ich weiss es doch auch nicht!"}
+  ]
+) %}
+<section class="content-block testimonial-block">
+  <h2>Let's hear it from some of our clients:</h2>
+  <div class="testimonials">
+    {% for testimonial in testimoniallist %}
+      <div class="testimonials-testimonial"> 
+        <div class="testimonials-testimonial-quote">
+          {{ testimonial.said }}
+        </div>
+        <div class="testimonials-testimonial-source">
+          {{ testimonial.sayer }}
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+  <div class="testimonial-nav">
+    <button class="testimonial-nav-prev">{{ icon('arrow-right') }}</button>
+    <button class="testimonial-nav-next">{{ icon('arrow-right') }}</button>
+  </div>
+</section>
+{% endmacro %}

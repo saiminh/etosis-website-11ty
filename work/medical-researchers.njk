@@ -1,6 +1,6 @@
 ---
 tags: work
-title: Medical researchers
+title: Medical research
 layout: layouts/work.njk
 svg: "partials/svg/hero-illu-medical-research.svg"
 thumbnail: /img/thumbnail-medical-research.svg
@@ -16,29 +16,31 @@ card:
 {% import "macros.html" as macros %}
 
 {{ macros.summary( summarytext = [
-  'Early-stage medical studies are often very unstructured because medical researchers often react on a hunch. So collection of data is often equally unstructured, which becomes a problem as the study develops. How to develop a data collection platform that easily brings structure to previously collected data and ensures ongoing data is also collected correctly? For researchers who develop models that can predict progression of eye diseases.'
+  'Early-stage medical studies can be unstructured, as medical researchers often work with theories. The collection of data is often equally chaotic, which becomes problematic as the study develops. How do you develop a collection platform that quickly structures data as well as ensures that ongoing data is collected correctly?'
 ] ) }}
 
 {{ macros.challenges(
   challengestext = [
-    'Medical studies often start with a single or a small group of doctors detecting an interesting pattern. They develop a rough hypothesis about what could be causing or alleviating their patients’ conditions and develop this into a treatment through a series of studies and trials.',
-    'This means that data for these studies – especially in the early stages – is often collected very ad hoc. Doctors may not yet know which data is relevant and as a result not collect all the data, or collect a lot of irrelevant data.',
-    'Data management systems for medical studies and trials that deal with these issues need to support data entry that is both easy to use and easy to modify after it becomes clear which data is relevant and which is not.'
+    'Medical studies often start with a single or a small group of doctors detecting an interesting pattern. They develop a rough hypothesis about what causes or alleviates their patients’ conditions and develop this into a treatment through a series of studies and trials.',
+
+    'The data for these studies – especially in the early stages – is often collected ad hoc. Doctors may not yet know which data are relevant and as a result do not keep all the data, or gather a lot of irrelevant data.',
+
+    'Data management systems for medical studies and trials that deal with these issues need to support data entry that is both easy to use and easy to modify after it becomes clear which data are relevant and which are not. As the data are medical, privacy is always a concern. This means standard cloud solutions for storage cannot be used and tooling has to be developed to manage the data on private servers.'
   ],
   challengesbullets = [
-    'Given the research, it was unclear what the data model would eventually look like.',
-    'Existing data had been collected very ad-hoc.'
+    'It was unclear what the data model would eventually look like.',
+    'Existing data had been collected very ad hoc.'
   ]
 ) }}      
 
 {{ macros.solutions(
   solutionstext = [
-    'As the data is medical data, privacy is always a concern. This means standard cloud solutions for storage cannot be used and tooling has to be developed to manage the data on private servers.'
+    'Etosis created a website that automatically configured the database back-end using data that had already been collected, and which could process new data using an easy web interface. To make the data available for statistical analysis, Etosis created a Python web platform that made the database accessible for external tools. Aside from the web platform, Etosis created a suite of tools that could be used to import existing data, which was automatically converted to the latest database format.'
   ],
   solutionsbullets = [
-    'A website with a very configurable database backend.',
-    'A Python web platform connecting the database to statistical analysis tools.',
-    'A suite of configurable import tools to bring existing data into the database.'
+    'Built a website with an easily configurable database backend.',
+    'Created a Python web platform connecting the database to statistical analysis tools.',
+    'Developed a suite of configurable import tools to import existing data into the database.'
   ]
 ) }}      
 

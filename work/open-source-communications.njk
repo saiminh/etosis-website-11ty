@@ -1,0 +1,44 @@
+---
+tags: work
+title: Open source communications
+layout: layouts/work.njk
+svg: "partials/svg/hero-illu-outlook.svg"
+thumbnail: /img/thumbnail-outlook.svg
+card: 
+  technologies: MAPI, Office automation, C#
+  icon_1: outlook
+  list_1: "Extend Outlook functionality to use client’s Groupware server"
+  icon_2: code
+  list_2: "Develop an Outlook plugin using C#"
+  icon_3: bug
+  list_3: "Create debug tooling"
+---
+{% import "macros.html" as macros %}
+
+{{ macros.summary( summarytext = [
+  'This client - a developer of back end email, video meeting and calendar systems - needed Outlook support. Although Outlook accommodates many communication technologies through its extensions, these are notoriously difficult to get right and a single bug can cause Outlook to crash.'
+] ) }}
+
+{{ macros.challenges(
+  challengestext = [
+    'Most Outlook Extensions are written in C++. This leads to a lot of Outlook crashes that are notoriously difficult to debug. And when using the ActiveSync protocol, not all of Outlook’s features can be accessed properly.'    
+  ],
+  challengesbullets = [
+    'Develop a mail server that supports ActiveSync. Outlook support was essential for better compatibility.',
+    'Outlook does not implement the ActiveSync protocol properly.',
+    'Existing Outlook plugin, in C++, creates multiple support problems.'
+  ]
+) }}      
+
+{{ macros.solutions(
+  solutionstext = [
+    'Unlocking Outlook features and creating a reliable and compatible system asked for an Outlook Extension written in C#. Getting these features up and running required a lot of coordination between the Outlook Extension and mail server. Etosis developed techniques including opening side channels to the mail server to control the data it sends to Outlook, and requiring communication through custom email headers, which are inserted by the Outlook Extension and handled by the mail server, or vice versa.',
+    
+    'Besides the Outlook Extension, Etosis created tools to configure the Outlook extension on the user’s computer to support advance deployment scenarios and aid in any future debugging issues.'
+  ],
+  solutionsbullets = [
+    'Developed an Outlook plugin in C# that fixed some of Outlook’s ActiveSync problems.',
+    'Created an interface that allowed the use of unsupported features (Outlook and/or ActiveSync) which communicated directly with the mail server over a proprietary protocol.',
+    'Created support tools that allowed any issue to be analysed on the end-users’ side.'
+  ]
+) }}      

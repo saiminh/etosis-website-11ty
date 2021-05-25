@@ -9,21 +9,19 @@ card:
   icon_1: chart
   list_1: "Develop an automated trading platform"
   icon_2: link
-  list_2: "Connected to existing Matlab code"
+  list_2: "Connect to existing Matlab code"
   icon_3: java
   list_3: "Implement trading algorithms in Java"
 ---
 {% import "macros.html" as macros %}
 
 {{ macros.summary( summarytext = [
-  'Automated stock market trading is very popular with large trading houses. Their unlimited budgets often give them the advantage. How about a range of small automated trading systems for a range of small clients? Not making profit by performing millions of transactions a day, but assisting knowledgeable traders to optimise their profits.'
+  'Automated stock market trading is very popular with large trading houses. Their unlimited budgets often give them the advantage. But what about automated trading systems for smaller traders? Systems which do not make a profit by performing millions of transactions a day, but by assisting knowledgeable traders to optimise their returns.'
 ] ) }}
 
 {{ macros.challenges(
   challengestext = [
-    'Development of an automated trading system is usually a multiple man-year project, requiring large upfront investment. For smaller traders, this can be an insurmountable problem.',
-
-    'Additionally, any algorithms they have developed are potentially worth millions, hence they need to be guarded closely.'
+    'These days, a lot of trading on stock exchanges is done by algorithms. The trades need to be executed quickly and reliably to make a profit. Usually, this involves hordes of software developers and plenty of hardware. Doing it on a budget is quite a challenge. This is particularly difficult as the algorithms are developed based on the knowledge and intuition of traders and are closely guarded trade secrets.'
   ],
   challengesbullets = [
     'Automated trading usually requires large development budgets.',
@@ -33,9 +31,11 @@ card:
 
 {{ macros.solutions(
   solutionstext = [
-    'One of the trading systems split a trade order into a number of smaller orders executed at different times, To optimise the price and to make it less obvious that someone is interested in buying a large number of shares. Very useful for smaller traders, as orders are public record and large traders may benefit from this information by quickly buying those shares.',
-    'Another, much more complicated system, looks at long-term changes in the price of related assets and automatically establishes a position in a certain asset if it has become undervalued. Of course, determining what it means to be undervalued is a very difficult thing. Through calling into the client’s Matlab code for the determination and reimplementing the more successful versions in Java resulted in improved performance and reliability.',
-    'Varying greatly in functionality, both need to be extremely reliable, well-tested and fail safely. They need to look at the market as a whole to prevent automated hysteria, for example when the market is extremely volatile. They also need to connect to different trading platforms and pricing information systems with as many APIs.'
+    'One of the trading systems developed by Etosis split a trade order into several smaller orders executed at different times, to optimise the price and make it less obvious that someone is interested in buying a large number of shares. This system was useful for smaller traders, as orders are public record and large traders can benefit from this information by snapping up those shares.',
+
+    'Another, more elaborate system created by Etosis, looked at long-term changes in the price of related assets and automatically established a position in a certain asset if it turned out to be undervalued. The algorithm to determine if an asset is undervalued was developed by the client in MATLAB. To allow the algorithm to execute without the need to divulge the underlying code, the system was configured to connect to existing MATLAB code.',
+
+    'Although very different, both systems needed to be extremely reliable, well tested and fail-safe. Both needed to analyse the entire market to prevent automated hysteria, for example, during a period of extreme volatility. They also needed to connect to different existing trading platforms and pricing information systems, all with their own APIs.'
   ],
   solutionsbullets = [
     'A simple and effective trading platform.',
