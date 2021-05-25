@@ -153,12 +153,12 @@ window.addEventListener('load', function(){
     gsap.set("#roof, #floor", { autoAlpha: 1 });
     gsap.set("#ball, #ball-shadow", { transformOrigin: "50% 50%" });
     let tlOnOpen = gsap.timeline({ paused: false })
-    .from("#roof line, #floor line", { drawSVG: "100% 100%", duration: 4, ease: "power2.out" })
+      .from("#roof line, #floor line", { drawSVG: "100% 100%", duration: 2, ease: "power2.out" })
 
     let tlBallBounce = gsap.timeline({ paused: false, repeat: -1, repeatDelay: 3.6})
-    .fromTo("#ball", { yPercent: 0, scale: 1 }, { yPercent: -66, scale: 1, duration: .3, ease: "circ.out" }, 0)
-    .fromTo("#ball-shadow", {yPercent: 0, scale: 1 }, {yPercent: 5, scale: .66, duration: .3, ease: "circ.out" }, 0)
-    .to("#ball, #ball-shadow", {yPercent: 0, scale: 1, duration: 1.3, ease: "bounce.out" } );
+      .fromTo("#ball", { yPercent: 0, scale: 1 }, { yPercent: -66, scale: 1, duration: .3, ease: "circ.out" }, 0)
+      .fromTo("#ball-shadow", {yPercent: 0, scale: 1 }, {yPercent: 5, scale: .66, duration: .3, ease: "circ.out" }, 0)
+      .to("#ball, #ball-shadow", {yPercent: 0, scale: 1, duration: 1.3, ease: "bounce.out" } );
     
     gsap.to("#ballnshadow", { transformOrigin: "50% 50%", scale: 0.3, xPercent: 110, yPercent: -55, duration: 2.6, ease: "power3.out", repeat: -1, yoyo: true });
     
