@@ -26,7 +26,7 @@ jobs:
         npx @11ty/eleventy
           
     - name: Commit to staging
-      working-directory: .\_site
+      working-directory: ./_site
       run: |
         git config --global user.name github-actions
         git config --global user.email github-actions@etosis.com
