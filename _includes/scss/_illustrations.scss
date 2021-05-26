@@ -148,6 +148,10 @@
   @media (max-width: 768px) {
     bottom: 20%;
   }
+  @media (min-width: 1440px){
+    width: 100%;
+    left: 45%;
+  }
   & circle {
     fill: transparent;
     stroke: #000;
