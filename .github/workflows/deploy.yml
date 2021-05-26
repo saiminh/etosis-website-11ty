@@ -17,8 +17,8 @@ jobs:
           repository: etosis/etosis.com.staging
           path: _site
           token: ${{ secrets.ETOSIS_COM_STAGING_TOKEN }}
-          ref: "master"
-          depth: 0
+          ref: "main"
+          fetch-depth: 1
     
     - name: Build
       run: |
