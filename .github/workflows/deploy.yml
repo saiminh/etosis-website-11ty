@@ -22,7 +22,8 @@ jobs:
     
     - name: Build
       run: |
-        npx install
+        npm install
+        npx @11ty/eleventy
           
     - name: Commit to staging
       working-directory: .\_site
