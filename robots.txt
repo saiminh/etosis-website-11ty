@@ -1,0 +1,4 @@
+Sitemap: https://etosis.com/sitemap.xml
+
+User-agent: *
+Disallow:

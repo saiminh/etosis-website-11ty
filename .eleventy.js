@@ -5,6 +5,7 @@ const { minify } = require("terser");
 module.exports = function(eleventyConfig) {
   // Copy the `img/` directory
   eleventyConfig.addPassthroughCopy("img");
+  eleventyConfig.addPassthroughCopy("robots.txt");
   //cssmin
   eleventyConfig.addFilter("cssmin", function(code) {
     return new CleanCSS({}).minify(code).styles;
